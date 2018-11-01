@@ -30,13 +30,13 @@
     
     <xacro:forearm_transmissions_sim prefix="right"/>
 
-    <xacro:thumb_transmissions_sim prefix="right"/>
+    <xacro:thumb_transmissions_sim prefix="right" reflect="1"/>
 
-    <xacro:index_finger_transmissions_sim prefix="right"/>
+    <xacro:index_finger_transmissions_sim prefix="right" reflect="1"/>
 
-    <xacro:middle_finger_transmissions_sim prefix="right"/>
+    <xacro:middle_finger_transmissions_sim prefix="right" reflect="1"/>
 
-    <xacro:pinky_transmissions_sim prefix="right"/>
+    <xacro:pinky_transmissions_sim prefix="right" reflect="1"/>
 
     <xacro:add_self_collide />
 

@@ -93,7 +93,7 @@
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
-  <gazebo reference="head_hokuyo_frame">
+  <gazebo reference="multisense/head_hokuyo_frame">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
@@ -149,7 +149,7 @@
     <child link="multisense/left_camera_optical_frame"/>
   </joint>
   <link name="multisense/left_camera_optical_frame"/>
-  <gazebo reference="left_camera_frame">
+  <gazebo reference="multisense/left_camera_frame">
     <sensor type="multicamera" name="stereo_camera">
       <!-- see MultiSenseSLPlugin.h for available modes -->
       <update_rate>10.0</update_rate>
@@ -298,5 +298,4 @@
   <gazebo>
     <plugin filename="libSRCMultiSenseSLPlugin.so" name="multisense_plugin"/>
   </gazebo>
-
 </robot>

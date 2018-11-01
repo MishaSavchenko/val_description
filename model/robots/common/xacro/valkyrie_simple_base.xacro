@@ -22,23 +22,4 @@
     <xacro:include_multisense_sim />
     <xacro:v1_trunk_sensors_usb sensor_node_tag="${torso_left_imu_node}" sensor_api_tag="${ImuSensorSimApi}" sensor_port_tag="${torso_left_imu_port}"/>
 
-    <xacro:waist_transmissions_sim />
-    <xacro:leg_transmissions_sim prefix="left"/>
-    <xacro:leg_transmissions_sim prefix="right"/>
-    <xacro:arm_transmissions_sim prefix="left"/>
-    <xacro:arm_transmissions_sim prefix="right"/>
-    <xacro:neck_transmissions_sim />
-
-    <xacro:thumb_transmissions_sim prefix="left" reflect="-1"/>
-    <xacro:thumb_transmissions_sim prefix="right" reflect="1"/>
-
-    <xacro:index_finger_transmissions_sim prefix="left" reflect="-1"/>
-    <xacro:index_finger_transmissions_sim prefix="right" reflect="1"/>
-
-    <xacro:middle_finger_transmissions_sim prefix="left" reflect="-1"/>
-    <xacro:middle_finger_transmissions_sim prefix="right" reflect="1"/>
-
-    <xacro:pinky_transmissions_sim prefix="left" reflect="-1"/>
-    <xacro:pinky_transmissions_sim prefix="right" reflect="1"/>
-
 </robot>
