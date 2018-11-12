@@ -124,7 +124,7 @@
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
         <topicName>/multisense/lidar_scan</topicName>
-        <frameName>head_hokuyo_frame</frameName>
+        <frameName>multisense/head_hokuyo_frame</frameName>
       </plugin>
     </sensor>
   </gazebo>
@@ -209,7 +209,7 @@
         <cameraName>multisense/camera</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-        <frameName>left_camera_optical_frame</frameName>
+        <frameName>multisense/left_camera_optical_frame</frameName>
         <!--<rightFrameName>right_camera_optical_frame</rightFrameName>-->
         <hackBaseline>0.07</hackBaseline>
         <distortionK1>0.0</distortionK1>
