@@ -11,7 +11,7 @@
     <!-- Arm include -->
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
     
-    <xacro:property name="prefix" value="right"/>
+    <xacro:property name="prefix" value="left"/>
     <xacro:property name="reflect" value="-1"/>
     <xacro:property name="WristTransmissionType" value="robot_transmission_interface/WristPushrodTransmission"/>
 
@@ -23,13 +23,13 @@
     <xacro:make_middle_finger prefix="${prefix}" reflect="${reflect}" middle_finger_root_link="${prefix}Palm"/>
     <xacro:make_pinky_finger prefix="${prefix}" reflect="${reflect}" pinky_finger_root_link="${prefix}Palm"/>
     
-    <xacro:simple_transmission jointName="${ForearmYawActuatorName}" actuatorName="${ForearmYawActuatorName}" nodeName="${ForearmYawNode}" actuatorApi="${ForearmYawApi}"/> 
-    <xacro:simple_transmission jointName="${IndexFingerPitch1ActuatorName}" actuatorName="${IndexFingerPitch1ActuatorName}" nodeName="${IndexFingerNode}" actuatorApi="${IndexFingerApi}"/> 
-    <xacro:simple_transmission jointName="${MiddleFingerPitch1ActuatorName}" actuatorName="${MiddleFingerPitch1ActuatorName}" nodeName="${MiddleFingerNode}" actuatorApi="${MiddleFingerApi}"/> 
-    <xacro:simple_transmission jointName="${PinkyPitch1ActuatorName}" actuatorName="${PinkyPitch1ActuatorName}" nodeName="${PinkyFingerNode}" actuatorApi="${PinkyFingerApi}"/> 
-    <xacro:simple_transmission jointName="${ThumbRollActuatorName}" actuatorName="${ThumbRollActuatorName}" nodeName="${ThumbRollNode}" actuatorApi="${ThumbRollFingerApi}"/> 
-    <xacro:simple_transmission jointName="${ThumbPitch1ActuatorName}" actuatorName="${ThumbPitch1ActuatorName}" nodeName="${ThumbProximalNode}" actuatorApi="${ThumbProximalFingerApi}"/> 
-    <xacro:simple_transmission jointName="${ThumbPitch2ActuatorName}" actuatorName="${ThumbPitch2ActuatorName}" nodeName="${ThumbDistalNode}" actuatorApi="${ThumbDistalFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ForearmYawActuatorName}" actuatorName="${prefix}${ForearmYawActuatorName}" nodeName="/${prefix}${ForearmYawNode}" actuatorApi="${ForearmYawApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${IndexFingerPitch1ActuatorName}" actuatorName="${prefix}${IndexFingerPitch1ActuatorName}" nodeName="/${prefix}${IndexFingerNode}" actuatorApi="${IndexFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${MiddleFingerPitch1ActuatorName}" actuatorName="${prefix}${MiddleFingerPitch1ActuatorName}" nodeName="/${prefix}${MiddleFingerNode}" actuatorApi="${MiddleFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${PinkyPitch1ActuatorName}" actuatorName="${prefix}${PinkyPitch1ActuatorName}" nodeName="/${prefix}${PinkyFingerNode}" actuatorApi="${PinkyFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbRollActuatorName}" actuatorName="${prefix}${ThumbRollActuatorName}" nodeName="/${prefix}${ThumbRollNode}" actuatorApi="${ThumbRollFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbPitch1ActuatorName}" actuatorName="${prefix}${ThumbPitch1ActuatorName}" nodeName="/${prefix}${ThumbProximalNode}" actuatorApi="${ThumbProximalFingerApi}"/> 
+    <xacro:simple_transmission jointName="${prefix}${ThumbPitch2ActuatorName}" actuatorName="${prefix}${ThumbPitch2ActuatorName}" nodeName="/${prefix}${ThumbDistalNode}" actuatorApi="${ThumbDistalFingerApi}"/> 
 
-    <xacro:pushrod_transmission transmissionName="${prefix}WristTransmission" transmissionType="${WristTransmissionType}" joint1Name="${WristPitchJointName}" joint2Name="${WristRollJointName}" joint1Role="pitch" joint2Role="roll" actuator1Name="${WristRightActuatorName}" actuator2Name="${WristLeftActuatorName}" actuator1Node="${WristRightActuatorNode}" actuator2Node="${WristLeftActuatorNode}" actuator1Api="${WristRightActuatorApi}" actuator2Api="${WristLeftActuatorApi}" actuator1Role="bottom" actuator2Role="top"/>
+    <xacro:pushrod_transmission transmissionName="${prefix}WristTransmission" transmissionType="${WristTransmissionType}" joint1Name="${prefix}${WristPitchJointName}" joint2Name="${prefix}${WristRollJointName}" joint1Role="pitch" joint2Role="roll" actuator1Name="${prefix}${WristRightActuatorName}" actuator2Name="${prefix}${WristLeftActuatorName}" actuator1Node="/${prefix}${WristRightActuatorNode}" actuator2Node="/${prefix}${WristLeftActuatorNode}" actuator1Api="${WristRightActuatorApi}" actuator2Api="${WristLeftActuatorApi}" actuator1Role="bottom" actuator2Role="top"/>
 </robot>
