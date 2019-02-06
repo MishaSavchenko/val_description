@@ -34,7 +34,7 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/leg_includes.xacro"/>
 
     <!-- Head include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/head/head_includes.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/head/head_includes_sim.xacro"/>
 
     <!-- Arm include -->
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
