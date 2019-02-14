@@ -11,6 +11,7 @@
     <xacro:property name="waist_mesh_dir" value="model://val_description/model/meshes/torso"/>
     <xacro:property name="head_mesh_dir" value="model://val_description/model/meshes/head"/>
     <xacro:property name="pelvis_mesh_dir" value="model://val_description/model/meshes/pelvis"/>
+    <xacro:property name="robot_type_suffix" value="_sim"/>
 
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
