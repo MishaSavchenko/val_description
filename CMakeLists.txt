@@ -43,7 +43,7 @@ foreach(it ${urdf_xacro_files})
   set(expanded_file "${URDF_OUTPUT_PATH}/${basename}.urdf")
   message("produce expanded file :" ${expanded_file})
 
-  xacro_add_xacro_file(${it} ${expanded_file})
+  xacro_add_xacro_file(${it} ${expanded_file} INORDER)
   
   set(urdf_files ${urdf_files} ${expanded_file})
 endforeach(it)
@@ -58,7 +58,7 @@ foreach(it ${instance_xacro_files})
   set(expanded_file "${INSTANCE_OUTPUT_PATH}/${basename}.xml")
   message("produce expanded file :" ${expanded_file})
 
-  xacro_add_xacro_file(${it} ${expanded_file})
+  xacro_add_xacro_file(${it} ${expanded_file} INORDER)
   
   set(instance_files ${instance_files} ${expanded_file})
 endforeach(it)

@@ -7,7 +7,7 @@
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/frame_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/mass_parameters.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/thumb/mechanical_info.xacro"/>
-  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gains.xacro"/>
+  <xacro:include filename="$(find val_description)/model/robots/common/xacro/gains${robot_type_suffix}.xacro"/>
   <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_hand_contact.xacro"/>
 
   <xacro:macro name="make_thumb" params="prefix reflect thumb_root_link">
