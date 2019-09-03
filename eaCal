@@ -1,0 +1,214 @@
+#!/usr/bin/python
+
+import pysmt
+import argparse
+import math
+
+try:
+    import register_builder
+except ImportError:
+    raise RuntimeError('Please verify that register_builder is installed')
+
+import time
+from numpy import *
+
+from nasa_val_embedded_utils.noAPITurbo import noAPITurbo
+from nasa_val_embedded_utils import HeartBeatTest
+
+CTRL_REG_DELAY = 0.1
+
+def initTurbo(ctrl_reg1, ctrl_reg2):
+    ctrl_reg1.CommutationSel(3) # Delta Hysteresis
+    time.sleep(CTRL_REG_DELAY)
+    ctrl_reg1.MotComSource(1) # Embedded Motor Control Source
+    time.sleep(CTRL_REG_DELAY)
+    ctrl_reg1.BridgeEnable(1) # Enable H Bridge
+    time.sleep(CTRL_REG_DELAY)
+    ctrl_reg2.ControlMode(0) # Current Control
+    time.sleep(CTRL_REG_DELAY)
+
+def disableTurbo(ctrl_reg1, ctrl_reg2):
+    ctrl_reg1.MotorEnable(0)
+    time.sleep(CTRL_REG_DELAY)
+    ctrl_reg1.CommutationSel(0)
+    time.sleep(CTRL_REG_DELAY)
+    ctrl_reg1.MotComSource(0)
+    time.sleep(CTRL_REG_DELAY)
+    ctrl_reg1.BridgeEnable(0)
+    time.sleep(CTRL_REG_DELAY)
+    ctrl_reg2.ControlMode(0)
+    time.sleep(CTRL_REG_DELAY)
+
+def runMotor(ctrl_reg, current, amplitude, duration, velocity, logPeriod):
+    data = []
+
+    ctrl_reg.MotorEnable(1) # call the enable function
+
+    startTime = time.time()
+    while(time.time() - startTime < duration):
+        current(amplitude)
+        logPeriodStart = time.time()
+        data.append(velocity())
+    ctrl_reg.MotorEnable(0)
+    return data
+
+
+def RunCalibration(rnet_loc, amplitude, duration, gain, tolerance, is_linear, initial_guess):
+
+    print 'Calibrating using: \n'
+    print ' eaCal -j ' + rnet_loc + ' custom -a ' , amplitude , '-d' , duration , '-g' , gain , '-t' , tolerance , '--linear\n' if is_linear else '\n'
+
+    # Acquire the topics needed for electrical angle calibration
+    try:
+        factory = pysmt.SMTClientFactory()
+        factory.abstractFactories['register'] = register_builder.RegisterFactory
+        # Registers Needed
+        ctrl1 = factory.getResource(rnet_loc + '/CtrlReg1')
+        ctrl2 = factory.getResource(rnet_loc + '/CtrlReg2')
+
+        # Topics Needed
+        indexOffset     = pysmt.getResource(rnet_loc + '/Motor_IdxOffset_Rad')
+        offsetMode      = pysmt.getResource(rnet_loc + '/Motor_IdxOffsetMode')
+        currentDes      = pysmt.getResource(rnet_loc + '/CurrentQ_Des_Amps')
+        if is_linear:
+            incEncVel       = pysmt.getResource(rnet_loc + '/IncEnc_Vel_mps')
+        else:
+            incEncVel       = pysmt.getResource(rnet_loc + '/IncEnc_Vel_Radps')
+
+    except:
+        print "The required SMT Topics for the EA Calibration do not exist" 
+        return False, float('nan')
+
+    # Initialize the turbodriver in the proper mode for the test
+    initTurbo(ctrl1, ctrl2)
+
+    # Set all variables to zero for test start
+    currentDes(0.0)
+    indexOffset(0.0)
+    offsetMode(0.0)
+
+    # Variables needed to run the test
+    success = False
+    in_progress = True
+    cal_iter = 0
+
+    indexOffsetEstimate = initial_guess
+    noMovementCount = 0
+    logPeriod = 0.002
+
+    try:
+        while in_progress:
+            cal_iter += 1
+
+            encoderVelocityAbs = 0.0         # The abslolute value of the encoder velocity
+            encoderVelocityForward = []
+            encoderVelocityBackwards = []
+
+	    print "Guessing with IdxOffset =", indexOffsetEstimate
+
+            time.sleep(1)
+            encoderVelocityForward = runMotor(ctrl1, currentDes, amplitude, duration, incEncVel, logPeriod)
+            currentDes(0.0)
+            time.sleep(1)
+            encoderVelocityBackward = runMotor(ctrl1, currentDes, -amplitude, duration, incEncVel, logPeriod)
+            currentDes(0.0)
+            time.sleep(1)
+
+            encoderVelocityAbs = (mean(encoderVelocityForward) - mean(encoderVelocityBackward)) / 2.0
+            differenceRatio = gain * (mean(encoderVelocityForward) + mean(encoderVelocityBackward)) / (mean(encoderVelocityForward) - mean(encoderVelocityBackward))
+            in_progress,indexOffsetEstimate,noMovementCount = calibrationAdjustment(encoderVelocityAbs, differenceRatio, tolerance, indexOffsetEstimate, noMovementCount)
+
+            if noMovementCount == 4:
+                calibrationInProgress = False
+                indexOffsetEstimate = float('nan')
+
+            indexOffset(indexOffsetEstimate)
+            offsetMode(1)
+            time.sleep(0.25)
+            offsetMode(0)
+    except:
+        raise
+    finally:
+        disableTurbo(ctrl1, ctrl2)
+        currentDes(0.0)
+
+    if noMovementCount < 4:
+        success = True
+
+    print success, indexOffset
+    return success, indexOffset
+
+def standardCalibrate(args):
+    amplitude_dict = {'a':5.0, 'b':5.0, 'c':5.5, 'd':5.5, 'e':1.5, 'f':3.5, 'g':3.5}
+    duration_dict  = {'a':1.0, 'b':1.0, 'c':1.0, 'd':1.0, 'e':0.5, 'f':1.0, 'g':1.0}
+    gain_dict      = {'a':2.0, 'b':2.0, 'c':2.0, 'd':2.0, 'e':2.0, 'f':2.0, 'g':2.0}
+    tolerance_dict = {'a':0.01,'b':0.01,'c':0.01,'d':0.01,'e':0.01,'f':0.01,'g':0.01}
+    is_linear = False
+    if args.classe=='e':
+        is_linear = True
+    j = args.classe
+
+    RunCalibration(args.joint, amplitude_dict[j], duration_dict[j], gain_dict[j], tolerance_dict[j], is_linear)
+
+    return
+
+def customCalibrate(args):
+    RunCalibration(args.joint, args.amplitude, args.duration, args.gain, args.tolerance, args.linear, args.initial_guess)
+    return
+
+def calibrationAdjustment(absoluteVelocity, ratio, tolerance, indexOffsetEstimate, noMovementCount):
+    # The motor didn't move substantially -> add pi / 2 radians to electrical angle offset
+    if(abs(absoluteVelocity) < 0.01):
+        print "No Movement"
+        indexOffsetEstimate = math.fmod(indexOffsetEstimate + pi / 2.0, 2.0*pi)
+        noMovementCount += 1
+        return True,indexOffsetEstimate,noMovementCount
+    # The motor moved, but in the opposite direction commanded -> add pi radians to the electrical offset
+    elif absoluteVelocity < 0.0:
+        print "Wrong way..."
+        indexOffsetEstimate = math.fmod(indexOffsetEstimate + pi, 2.0*pi)
+        return True,indexOffsetEstimate,noMovementCount
+    # The next two portions of the adjust the offset by a scaling of the ratio -> the estimated angle is within pi / 2 radians
+    elif ratio > tolerance:
+        print "Faster forwards"
+        indexOffsetEstimate = math.fmod(indexOffsetEstimate + min(ratio, pi / 6.0), 2.0 * pi)
+        return True,indexOffsetEstimate,noMovementCount
+    elif ratio < -tolerance:
+        print "Faster backwards"
+        indexOffsetEstimate = math.fmod(indexOffsetEstimate + max(ratio, -pi / 6.0), 2.0 * pi)
+        return True,indexOffsetEstimate,noMovementCount
+    else:
+        print "Done with calibration"
+        return False,indexOffsetEstimate,noMovementCount
+
+if __name__=='__main__':
+    parser = argparse.ArgumentParser(description="Electrical Angle Calibration",
+        formatter_class = argparse.RawDescriptionHelpFormatter )
+    # top level args
+    parser.add_argument("-j","--joint"   , type=str, help="specifies joint to calibrate (e.g. /left_arm/j2)")
+    subs = parser.add_subparsers()
+    # custom subparser
+    standard_parser = subs.add_parser('standard',help="Calibrate using params appropriate for your actuator class")
+    standard_parser.add_argument('-c','--classe',type=str, help="Actuator class. Classe is french for class. (e.g. '--classe a' for an arm j1)")
+    standard_parser.set_defaults(func=standardCalibrate)
+    # position command subparser
+    custom_parser = subs.add_parser('custom',help="Calibrate using params set by you")
+    custom_parser.add_argument('-a','--amplitude', type=float, default=1.5, help="Motor current amplitude used for calibration (A)")
+    custom_parser.add_argument('-d','--duration', type=float, default=0.5, help="Duration of time motor current is applied in one direction (s)")
+    custom_parser.add_argument('-g','--gain', type=float, default=2.0,help="Calibration search gain. Tweak if caught in loop of guesses much bigger than your desired tolerance.")
+    custom_parser.add_argument('-t','--tolerance',type=float, default=0.01,help="Tolerance that determines when calibration has converged to an acceptable solution (Rad)")
+    custom_parser.add_argument('-l','--linear',action='store_true',default=False,help="Use this if testing a linear actuator so the correct linear topics are read")
+    custom_parser.add_argument('-i','--initial-guess',type=float,default=6.0,help="Initial encoder offset guess")
+    custom_parser.set_defaults(func=customCalibrate)
+
+    parser.epilog = """
+    Try 'COMMAND -h' for more info on specific commands
+
+    standard - Use calibration search parameters that are known to work well with a given actuator class you specify using '--classe' Parameters are hardcoded in nasa_val_embedded_utils/scripts/eaCal for each actuator class.
+
+    custom - Use custom calibration search parameters that you specify. Unspecified parameters will default to values that may or may not work.
+
+    """
+
+    args = parser.parse_args()
+    args.func(args)
