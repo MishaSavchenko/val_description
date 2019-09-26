@@ -17,6 +17,7 @@
     <Coeff description="Renishaw offset in bits" id="SpringAPS_BitOffset" value="337568844" />
     <Coeff description="Position offset in radians" id="PositionOffset_Rad" value="-0.334840561055" />
     <Coeff id="TorqueOffset_Nm" value="12.8053585419" />
-        <Coeff id="JointGearRatio" value="194.0" />
+    <!--<Coeff id="JointGearRatio" value="194.0" />
+  -->
   </Coeffs>
 </CoeffData>
