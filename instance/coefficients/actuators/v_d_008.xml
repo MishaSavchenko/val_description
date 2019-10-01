@@ -6,7 +6,7 @@
   <SafetyFile id="safety.xml" />
   <Coeffs>
     <Coeff description="Kinematic direction of joint" id="JointKinematicDir" value="-1.0" />
-    <Coeff description="Angle offset used for calibrating joint angle" id="PositionOffset_Rad" value="-2.37493727099" />
+    <Coeff description="Angle offset used for calibrating joint angle" id="PositionOffset_Rad" value="-2.36343243149" />
     <Coeff description="Incremental Encoder" id="JointSensors_MotorPosition" value="1" />
     <Coeff description="APS" id="JointSensors_OutputPosition" value="2.0" />
     <Coeff description="IncrementalEncoder" id="JointSensors_OutputVelocity" value="4.0" />

@@ -6,6 +6,7 @@
     <xacro:property name="head_mesh_dir" value="package://val_description/model/meshes/head"/>
     <xacro:property name="pelvis_mesh_dir" value="package://val_description/model/meshes/pelvis"/>
     <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
+    <xacro:property name="robot_type_suffix" value=""/>
 
 	<xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro"/>

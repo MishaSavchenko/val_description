@@ -9,12 +9,13 @@
 
     <schedule_topic_creator_file package="val_gazebo" relative_file_path="/configuration/valkyrie_sim_shm_topics.yaml"/>
 
-    <xacro:property name="leg_mesh_dir" value="model://val_description/model/meshes/legs"/>
-    <xacro:property name="arm_mesh_dir" value="model://val_description/model/meshes/arms"/>
-    <xacro:property name="waist_mesh_dir" value="model://val_description/model/meshes/torso"/>
-    <xacro:property name="head_mesh_dir" value="model://val_description/model/meshes/head"/>
-    <xacro:property name="pelvis_mesh_dir" value="model://val_description/model/meshes/pelvis"/>
-    <xacro:property name="fingers_mesh_dir" value="model://val_description/model/meshes/fingers"/>
+    <xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
+    <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
+    <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshes/torso"/>
+    <xacro:property name="head_mesh_dir" value="package://val_description/model/meshes/head"/>
+    <xacro:property name="pelvis_mesh_dir" value="package://val_description/model/meshes/pelvis"/>
+    <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
+    <xacro:property name="robot_type_suffix" value="_sim"/>
 
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
@@ -35,7 +36,7 @@
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/leg/leg_includes.xacro"/>
 
     <!-- Head include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/head/head_includes.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/head/head_includes_sim.xacro"/>
 
     <!-- Arm include -->
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
