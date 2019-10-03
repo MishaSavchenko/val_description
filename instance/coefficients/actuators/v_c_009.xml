@@ -15,7 +15,7 @@
     <Coeff description="Renishaw" id="JointSensors_OutputForce" value="2.0" />
     <Coeff description="Direction the sensor is mounted in" id="SpringAPS_MountingGain" value="1.0" />
     <Coeff description="Renishaw offset in bits" id="SpringAPS_BitOffset" value="754959145" />
-    <Coeff description="Position Offset in radians" id="PositionOffset_Rad" value="1.6321555827" />
+    <Coeff description="Position Offset in radians" id="PositionOffset_Rad" value="1.64135934358" />
     <Coeff id="TorqueOffset_Nm" value="-1.74024339184" />
     <Coeff id="JointGearRatio" value="194.0" />
   </Coeffs>

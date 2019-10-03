@@ -7,7 +7,8 @@
     <Coeffs>
         <Coeff id="EncMountingDir" value="1.0" />
         <Coeff id="EncoderIndexOffset" value="2.972" />
-        <Coeff id="JointGearRatio" value="194.0" />
+    <!--<Coeff id="JointGearRatio" value="194.0" />
+  -->
         <Coeff id="JointKinematicDir" value="-1.0" />
         <Coeff id="JointSensors_MotorPosition" value="1.0" />
         <Coeff id="JointSensors_OutputForce" value="2.0" />
