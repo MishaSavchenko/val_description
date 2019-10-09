@@ -17,5 +17,6 @@
         <Coeff description="" id="JointOutputAPS_MountingGain" value="-1.0" />
         <Coeff description="" id="SpringAPS_MountingGain" value="-1" />
         <Coeff description="" id="SpringAPS_BitOffset" value="502993000" />
+        <Coeff id="JointGearRatio" value="192.0" />
     </Coeffs>
 </CoeffData>

@@ -1,0 +1,17 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_api">
+                                            
+    <xacro:property name="HipYawApi" value="robot_hardware_interface/TurbodriverAPI" />
+    <xacro:property name="HipRollApi" value="robot_hardware_interface/TurbodriverAPI" />
+    <xacro:property name="HipPitchApi" value="robot_hardware_interface/TurbodriverAPI" />
+    <xacro:property name="KneePitchApi" value="robot_hardware_interface/TurbodriverAPI" />
+    <xacro:property name="AnkleRightActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek" />
+    <xacro:property name="AnkleLeftActuatorApi" value="robot_hardware_interface/TurbodriverAPI_linear_futek" />
+
+    <xacro:property name="ForceTorqueSensorApi" value="ati_sensor_interface::ATISensorInterface" />
+    <xacro:property name="ImuMicrostrainHardwareApi" value="imu_3dm_gx4_15_sensor::Imu3DmGx415Sensor" />
+    <xacro:property name="ImuVectorNavHardwareApi" value="val_imu_vectornav_vn100_interface/ImuVecotNavInterface" />
+    <xacro:property name="ImuSensorSimApi" value="val_imu_gazebo_interface/ImuGazeboInterface" />
+
+    <xacro:property name="SimApi" value="robot_hardware_interface/TurbodriverSimAPI" />
+    
+</robot>
