@@ -10,7 +10,7 @@
     <SafetyFile id="safety_fingers.xml" />
     <Coeffs>
         <Coeff id="EncMountingDir" value="1.0" />
-        <Coeff id="EncoderIndexOffset" value="4.2"/>
+        <Coeff id="EncoderIndexOffset" value="4.375"/>
         <Coeff id="JointKinematicDir" value="1.0"/>
         <Coeff id="JointSensors_MotorPosition" value="2.0"/>
         <Coeff id="JointSensors_OutputForce" value="0.0"/>
