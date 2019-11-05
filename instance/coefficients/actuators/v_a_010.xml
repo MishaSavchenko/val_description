@@ -6,7 +6,7 @@
     <SafetyFile id="safety.xml" />
     <Coeffs>
         <Coeff id="EncMountingDir" value="1.0" />
-        <Coeff id="EncoderIndexOffset" value="4.66560547969" />
+        <Coeff id="EncoderIndexOffset" value="4.56372294676" />
         <Coeff id="JointKinematicDir" value="-1.0" />
         <Coeff id="JointSensors_MotorPosition" value="1.0" />
         <Coeff id="JointSensors_OutputForce" value="2.0" />
@@ -16,6 +16,16 @@
         <Coeff id="JointOutputAPS_MountingGain" value="-1.0" />
         <Coeff id="SpringAPS_BitOffset" value="653724033.0" />
         <Coeff id="SpringAPS_MountingGain" value="-1.0" />
-        <Coeff id="TorqueOffset_Nm" value="-2.56156222915" />
+        <Coeff id="TorqueOffset_Nm" value="-10.46" />
+        <Coeff id="SpringStiffness" value="2417"/>
+        
+        <!-- New encoder disc, re-checkout, original EncoderIndexOffset, J. Lee 6-13-2019
+        <Coeff id="JointSafety_LowerLimit_Rad" value="-6.28318530718"/>
+        <Coeff id="JointSafety_UpperLimit_Rad" value="6.28318530718"/>
+        <Coeff description="" id="LoadCell_MountingGain" value="1.0" />
+        <Coeff description="" id="LoadCell_NmPerCount" value="0.0153081" />
+        <Coeff description="" id="LoadCell_OffsetBits" value="32801" />
+        <Coeff id="EncoderIndexOffset" value="4.66560547969" />
+        -->
     </Coeffs>
 </CoeffData>
