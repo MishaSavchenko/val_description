@@ -113,7 +113,7 @@
   </xacro:macro>
 
   <xacro:macro name="thumb_transmissions_sim" params="prefix reflect">
-    <xacro:simple_effort_transmission_with_one_child_joint jointName="${prefix}${ThumbRollActuatorName}" actuatorName="${prefix}${ThumbRollActuatorName}" nodeName="/${prefix}${ThumbRollNode}" actuatorApi="${SimApi}" child1JointName="${prefix}${ThumbRollJointName}" child1Ratio="1" reflect="${reflect}"/>    
+    <xacro:simple_effort_transmission_with_one_child_joint jointName="${prefix}${ThumbRollActuatorName}" actuatorName="${prefix}${ThumbRollActuatorName}" nodeName="/${prefix}${ThumbRollNode}" actuatorApi="${SimApi}" child1JointName="${prefix}${ThumbRollJointName}" child1Ratio="1" reflect="1"/>
 
     <xacro:simple_transmission jointName="${prefix}${ThumbPitch1ActuatorName}" actuatorName="${prefix}${ThumbPitch1ActuatorName}" nodeName="/${prefix}${ThumbProximalNode}" actuatorApi="${SimApi}" />
 

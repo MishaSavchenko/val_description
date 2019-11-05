@@ -1,6 +1,6 @@
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ValkyrieE">
 
-        <xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
+	<xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
     <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshes/torso"/>
     <xacro:property name="head_mesh_dir" value="package://val_description/model/meshes/head"/>
@@ -8,14 +8,15 @@
     <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
     <xacro:property name="robot_type_suffix" value=""/>
 
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
+	<xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
     <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro"/>
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/sensors/sensor_transforms.xacro"/>
 
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/config/valkyrie_A_transmissions.xacro" />
-    <xacro:include filename="$(find val_description)/common/xacro/serial_numbers/valkyrie_A_serials.xacro"/>
-    <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_A_api.xacro"/>
-    <xacro:include filename="$(find val_description)/common/xacro/dev_ports/valkyrie_A_ports.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/config/valkyrie_E_transmissions.xacro" />
+	<xacro:include filename="$(find val_description)/common/xacro/serial_numbers/valkyrie_E_serials.xacro"/>
+    <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_E_api.xacro"/>
+    <xacro:include filename="$(find val_description)/common/xacro/dev_ports/valkyrie_E_ports.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
 
     <!-- Pelvis include -->
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/pelvis/pelvis_includes.xacro"/>
@@ -32,7 +33,6 @@
     <!-- Waist include -->
     <xacro:include filename="$(find val_description)/model/robots/common/xacro/waist/waist_includes.xacro"/>
 
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_arm_bot.xacro"/>
+    <xacro:include filename="$(find val_description)/model/robots/common/xacro/valkyrie_base_hw.xacro"/>
 
 </robot>
-
