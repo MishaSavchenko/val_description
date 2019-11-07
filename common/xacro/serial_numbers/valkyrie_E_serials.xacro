@@ -33,8 +33,8 @@
 	<xacro:property name="neckJ3SerialNumber" value="v_g_008" />
 
 	<xacro:property name="trunkSerialNumber" value="v_a_004" />
-	<xacro:property name="waistRightActuatorSerialNumber" value="v_e_025" />
-	<xacro:property name="waistLeftActuatorSerialNumber" value="v_e_026" />
+	<xacro:property name="waistRightActuatorSerialNumber" value="v_e_026" />
+	<xacro:property name="waistLeftActuatorSerialNumber" value="v_e_025" />
 
 	<xacro:property name="left_foot_ATI_serial" value="FT17218" />
 	<xacro:property name="right_foot_ATI_serial" value="FT14018" />
