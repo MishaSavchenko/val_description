@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>val_description</name>
-  <version>6.0.2</version>
+  <version>6.0.3</version>
   <description>The val_description package</description>
 
   <maintainer email="james.j.holley@nasa.gov">James Holley</maintainer>
