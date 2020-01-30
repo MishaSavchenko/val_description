@@ -41,10 +41,10 @@
                     collision_mesh="${fingers_mesh_dir}/indexj3_${prefix}.dae"/>
     <xacro:gazebo_hand_contact link_name="${prefix}IndexFingerPitch3Link" />
 
-    <xacro:revolute_joint_ex jointName="${prefix}${IndexFingerPitch1JointName}" 
+    <xacro:revolute_joint_ex jointName="${prefix}${IndexFingerPitch1JointName}"
                           parent="${index_finger_root_link}" child="${prefix}IndexFingerPitch1Link"
-                          origin_xyz="${IndexFingerPitch1FrameOrigin_X} ${reflect * 0.0976} ${IndexFingerPitch1FrameOrigin_Z}" 
-                          origin_rpy="${reflect * 0.1745} ${IndexFingerPitch1FrameOrientation_Pitch} ${IndexFingerPitch1FrameOrientation_Yaw}"
+                          origin_xyz="${IndexFingerPitch1FrameOrigin_X} ${reflect * IndexFingerPitch1FrameOrigin_Y} ${IndexFingerPitch1FrameOrigin_Z}"
+                          origin_rpy="${reflect * -0.02} ${IndexFingerPitch1FrameOrientation_Pitch} ${IndexFingerPitch1FrameOrientation_Yaw}"
                           axis="${IndexFingerPitch1RotationAxis}" damping="0.5" friction="0.5">
         <xacro:if value="${(reflect+1)/2}">
           <limit effort="${IndexFingerPitch1TorqueLimit}" lower="${-reflect * IndexFingerPitch1PositionLimit_Upper}" upper="${-reflect * IndexFingerPitch1PositionLimit_Lower}" velocity="${IndexFingerPitch1VelocityLimit}"/>

@@ -3,7 +3,7 @@
 
   <xacro:property name="IndexFingerPitch1FrameOrigin_X" value="0.0022"/>
   <xacro:property name="IndexFingerPitch1FrameOrigin_Y" value="0.0976"/>
-  <xacro:property name="IndexFingerPitch1FrameOrigin_Z" value="0.0235"/>
+  <xacro:property name="IndexFingerPitch1FrameOrigin_Z" value="0.017"/>
 
   <xacro:property name="IndexFingerPitch1FrameOrientation_Roll" value="0.1745"/>
   <xacro:property name="IndexFingerPitch1FrameOrientation_Pitch" value="0.0"/>

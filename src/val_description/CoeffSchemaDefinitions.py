@@ -29,6 +29,8 @@ actuator_coeffs_definition = \
         <xs:enumeration value="ForceOffset_N"/>
         <xs:enumeration value="JointGearRatio"/>
         <xs:enumeration value="SpringStiffness"/>
+        <xs:enumeration value="JointSafety_LowerLimit_Rad"/>
+        <xs:enumeration value="JointSafety_UpperLimit_Rad"/>
     </xs:restriction>
 </xs:simpleType>
 '''
