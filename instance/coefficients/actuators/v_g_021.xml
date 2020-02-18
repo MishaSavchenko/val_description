@@ -13,7 +13,7 @@
         <Coeff id="JointSensors_OutputForce" value="0.0" />
         <Coeff id="JointSensors_OutputPosition" value="2.0" />
         <Coeff id="JointSensors_OutputVelocity" value="3.0" />
-        <Coeff id="PositionOffset_Rad" value="-2.38058" />
+        <Coeff id="PositionOffset_Rad" value="-2.43558" />
         <Coeff id="TemperatureSensor_SensorLoc1" value="2.0" />
         <Coeff id="TemperatureSensor_SensorLoc2" value="2.0" />
     </Coeffs>

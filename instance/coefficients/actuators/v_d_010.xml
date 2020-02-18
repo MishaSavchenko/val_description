@@ -17,7 +17,7 @@
     <Coeff id="SpringAPS_BitOffset" value="1050565700" />
     <Coeff id="TorqueOffset_Nm" value="1.6" />
 
-    <Coeff id="PositionOffset_Rad" value="0.1748738" />
+    <Coeff id="PositionOffset_Rad" value="0.07013" />
     <Coeff id="JointGearRatio" value="196.3636" />
     <Coeff id="SpringStiffness" value="3775.0" />
 
