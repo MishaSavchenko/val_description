@@ -5,8 +5,8 @@
     <SensorsFile id="sensors.xml" />
     <SafetyFile id="safety.xml" />
     <Coeffs>
-        <Coeff description="" id="JointKinematicDir" value="-1.0" />
-        <Coeff description="" id="PositionOffset_Rad" value="1.83311" />
+        <Coeff description="" id="JointKinematicDir" value="1.0" />
+        <Coeff description="" id="PositionOffset_Rad" value="-1.84691" />
         <Coeff description="" id="JointSensors_MotorPosition" value="1" />
         <Coeff description="" id="JointSensors_OutputForce" value="2.0" />
         <Coeff description="" id="JointSensors_OutputPosition" value="2.0" />
@@ -16,10 +16,8 @@
         <Coeff description="" id="JointOutputAPS_MountingGain" value="1.0" />
         <Coeff description="" id="SpringAPS_MountingGain" value="-1" />
         <Coeff description="" id="SpringAPS_BitOffset" value="740491290" />
-        <Coeff description="" id="TorqueOffset_Nm" value="0.0" />
+        <Coeff description="" id="TorqueOffset_Nm" value="-0.85" />
 
-        <Coeff id="JointSafety_LowerLimit_Rad" value="-3.14"/>
-        <Coeff id="JointSafety_UpperLimit_Rad" value="3.14"/>
 
         <Coeff description="" id="LoadCell_MountingGain" value="1.0" />
         <Coeff description="" id="LoadCell_NmPerCount" value="0.015413" />
