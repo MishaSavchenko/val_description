@@ -20,3 +20,4 @@ instance/instances/instance_files/*
 *.BASE.*.xacro
 *.LOCAL.*.xacro
 *.REMOTE.*.xacro
+core
