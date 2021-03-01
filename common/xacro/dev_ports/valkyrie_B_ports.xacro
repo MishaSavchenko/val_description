@@ -6,7 +6,13 @@
 
   <!-- <xacro:property name="pelvis_rear_imu_port" value="/dev/serial/by-id/usb-Lord_Microstrain_Lord_Inertial_Sensor_0000__6233.47099-if00" /> -->
 
+
   <xacro:property name="pelvis_rear_imu_port" value="/dev/serial/by-id/usb-Lord_Microstrain_Lord_Inertial_Sensor_0000__6233.47092-if00" />
-	<xacro:property name="torso_left_imu_port" value="/dev/serial/by-id/usb-Lord_Microstrain_Lord_Inertial_Sensor_0000__6233.47097-if00" />
+
+        <!-- Original chest IMU on B -->
+	<!--xacro:property name="torso_left_imu_port" value="/dev/serial/by-id/usb-Lord_Microstrain_Lord_Inertial_Sensor_0000__6233.47097-if00" /-->
+
+        <!-- Chest IMU swapped in from C -->
+	<xacro:property name="torso_left_imu_port" value="/dev/serial/by-id/usb-Lord_Microstrain_Lord_Inertial_Sensor_0000__6233.47250-if00" />
 
 </robot>
