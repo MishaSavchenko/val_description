@@ -102,10 +102,13 @@
     </link>
   </xacro:macro>
 
-  <xacro:property name="massless_virtual_link_mass" value="0.0000001"/>
-  <xacro:property name="massless_virtual_link_radius" value="0.0000001"/>
-  <xacro:property name="massless_virtual_link_height" value="0.0000001"/>
+
+
   <xacro:macro name="massless_virtual_link" params="name origin_xyz origin_rpy">
+    <xacro:property name="massless_virtual_link_mass" value="0.0000001" />
+    <xacro:property name="massless_virtual_link_radius" value="0.0000001" />
+    <xacro:property name="massless_virtual_link_height" value="0.0000001" />
+
     <link name="${name}">
       <!-- Virtual Link -->
       <inertial>

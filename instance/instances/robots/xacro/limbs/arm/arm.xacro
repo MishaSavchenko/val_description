@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
 
-    <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/mechanisms/mechanisms.xacro"/>
-    <xacro:include filename="$(find val_description)/common/xacro/joint_names/valkyrie_joint_names.xacro"/>
+    <xacro:include filename="../../../../../../instance/instances/robots/xacro/mechanisms/mechanisms.xacro"/>
+    <xacro:include filename="../../../../../../common/xacro/joint_names/valkyrie_joint_names.xacro"/>
 
     <xacro:macro name="arm" params="prefix reflect j1_serial_number j2_serial_number j3_serial_number j4_serial_number j5_serial_number forearm_serial_number" >
     	<xacro:simple_mechanism name="${ShoulderPitchJointName}" serial_number="${j1_serial_number}" node="/trunk/${prefix}_arm_j1" calibration_angle="${ShoulderPitchCalibrationAngle}"/>

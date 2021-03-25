@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie">
 
-    <xacro:include filename="$(find val_description)/common/xacro/api/testbench_api.xacro"/>
-    <xacro:include filename="$(find val_description)/common/xacro/nodes/actuator_testbench_nodes.xacro"/>
+    <xacro:include filename="../../common/xacro/api/testbench_api.xacro"/>
+    <xacro:include filename="../../common/xacro/nodes/actuator_testbench_nodes.xacro"/>
 
     <transmission name="testbenchTransmission">
       <type>transmission_interface/SimpleTransmission</type>
