@@ -7,17 +7,18 @@
     <Coeffs>
         <Coeff id="EncMountingDir" value="1.0" />
         <Coeff id="EncoderIndexOffset" value="4.56372294676" />
-        <Coeff id="JointKinematicDir" value="1.0" />
+        <Coeff id="JointKinematicDir" value="-1.0" />
         <Coeff id="JointSensors_MotorPosition" value="1.0" />
         <Coeff id="JointSensors_OutputForce" value="2.0" />
         <Coeff id="JointSensors_OutputPosition" value="2.0" />
         <Coeff id="JointSensors_OutputVelocity" value="4.0" />
-       <!-- <Coeff id="PositionOffset_Rad" value="1.5915031" /> -->
-        <Coeff id="PositionOffset_Rad" value="0.16" />
-        <Coeff id="JointOutputAPS_MountingGain" value="1.0" />
+        <Coeff id="PositionOffset_Rad" value="1.5915031" /> 
+		<!-- <Coeff id="PositionOffset_Rad" value="0.16" />-->
+        <Coeff id="JointOutputAPS_MountingGain" value="-1.0" />
         <Coeff id="SpringAPS_BitOffset" value="653724033.0" />
         <Coeff id="SpringAPS_MountingGain" value="-1.0" />
-        <Coeff id="TorqueOffset_Nm" value="4971.48" />
+			<!-- <Coeff id="TorqueOffset_Nm" value="4971.48" /> -->
+	<Coeff id="TorqueOffset_Nm" value="0.0" /> 
         <Coeff id="SpringStiffness" value="2417"/>
         
         <!-- New encoder disc, re-checkout, original EncoderIndexOffset, J. Lee 6-13-2019
