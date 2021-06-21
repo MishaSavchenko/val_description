@@ -2,10 +2,10 @@
 <sdf version="1.4">
   <world name="default">
     <include>
-      <uri>model://ground_plane</uri>
+      <uri>package://ground_plane</uri>
     </include>
     <include>
-      <uri>model://sun</uri>
+      <uri>package://sun</uri>
     </include>
   </world>
 </sdf>
