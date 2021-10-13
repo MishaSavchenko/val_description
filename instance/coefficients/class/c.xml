@@ -7,6 +7,7 @@
     <Coeff id="JointSafety_LimitZone_Rad" value="0.14" />
     <Coeff id="CurrentSafeLimit" value="27.5"/>
     <Coeff id="EncoderCPR" value="834.0"/>
+    <Coeff id="Encoder_NumIndexPerRev" value="6.0" />
     <Coeff id="FluxLinkage" value="0.0148"/>
     <Coeff id="Inductance_DAxis" value="0.00053"/>
     <Coeff id="Inductance_QAxis" value="0.00081"/>

@@ -5,6 +5,7 @@
   <Coeffs>
         <Coeff id="NumberOfPoles" value="14.0"/>
         <Coeff id="EncoderCPR" value="2048.0"/>
+        <Coeff id="Encoder_NumIndexPerRev" value="7.0" />
         <Coeff id="FluxLinkage" value="0.0000238"/>
         <Coeff id="Inductance_DAxis" value="0.0009"/>
         <Coeff id="Inductance_QAxis" value="0.00139"/>
