@@ -1,9 +1,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="test_bench_template">
 
-	<xacro:include filename="$(find val_description)/common/xacro/serial_numbers/test_bench_serials.xacro" />
-	<xacro:include filename="$(find val_description)/common/xacro/nodes/actuator_testbench_nodes.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/mechanisms/mechanisms.xacro"/>
-	<xacro:include filename="$(find val_description)/common/xacro/firmware/valkyrie_firmware.xacro"/>
+	<xacro:include filename="../../../../../common/xacro/serial_numbers/test_bench_serials.xacro" />
+	<xacro:include filename="../../../../../common/xacro/nodes/actuator_testbench_nodes.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/mechanisms/mechanisms.xacro"/>
+	<xacro:include filename="../../../../../common/xacro/firmware/valkyrie_firmware.xacro"/>
 
 	<RobotInstance id="testbench" />
 

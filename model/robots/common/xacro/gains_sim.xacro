@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_nodes">
     <!-- Get the hardware gains -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/gains.xacro"/>
+    <xacro:include filename="gains.xacro"/>
 
     <!-- Override only those properties that need to be different for sim -->
     <xacro:property name="LowerNeckPitchKp" value="150" />

@@ -1,11 +1,16 @@
-<firmware xmlns:xacro="http://www.ros.org/wiki/xacro" name="firmware">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="firmware">
 
-    <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/arm_firmware.xacro" />
-    <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/forearm_firmware.xacro" />
-    <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/leg_firmware.xacro" />
-    <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/trunk_firmware.xacro" />
-    <xacro:include filename="$(find val_description)/common/xacro/firmware/valkyrie_firmware.xacro"/>
+    <xacro:include filename="../../../../../instance/instances/robots/xacro/firmware/arm_firmware.xacro" />
+    <xacro:include filename="../../../../../instance/instances/robots/xacro/firmware/forearm_firmware.xacro" />
+    <xacro:include filename="../../../../../instance/instances/robots/xacro/firmware/leg_firmware.xacro" />
+    <xacro:include filename="../../../../../instance/instances/robots/xacro/firmware/trunk_firmware.xacro" />
     <xacro:macro name="firmware" params="">
+<!--
+    There is a bug in xacro that is causing it not to resolve global-scope properties unless I add a 
+    local property here. The name of the property apparently doesn't matter.
+-->
+        <xacro:property name="foo" value="bar" />
+
         <Firmware type="firmware">
             <xacro:arm_firmware />
             <xacro:forearm_firmware />
@@ -13,4 +18,4 @@
             <xacro:trunk_firmware />
         </Firmware>
     </xacro:macro>
-</firmware>
+</robot>

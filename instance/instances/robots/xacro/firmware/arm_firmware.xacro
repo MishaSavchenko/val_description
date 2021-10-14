@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm_firmware">
 
-    <xacro:include filename="$(find val_description)/common/xacro/firmware/valkyrie_firmware.xacro"/>
+    <xacro:include filename="../../../../../common/xacro/firmware/valkyrie_firmware.xacro"/>
     <xacro:macro name="arm_firmware"  >
             <fw id="rightArmJ1">
                 <Node id="/trunk/right_arm_j1" />
