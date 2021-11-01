@@ -3,7 +3,7 @@ variables:
   PACKAGE_NAME: val_description
   CONFIGURATIONS_FILE: .configurations.yml
   RUN_TESTS: "false"
-  DEBIAN_PACKAGE_NAME: "val-description"
+  DEBIAN_PACKAGE_NAME: "ros-noetic-val-description"
 
 stages:
   - build
