@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Pelvis">
 
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/sensors/microstrain.xacro" />
+    <xacro:include filename="../../../../../model/robots/common/xacro/sensors/microstrain.xacro" />
     <xacro:property name="Pelvis_Link_Name" value="pelvis" />
 
     <xacro:macro name="make_pelvis">

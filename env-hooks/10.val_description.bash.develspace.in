@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# base environment
-source "$(pkg-config --variable=prefix gazebo)/share/gazebo/setup.sh"
+# base environment -- if gazebo is installed, set up the environment for it
+gazebo_path=$(pkg-config --variable=prefix --silence-errors gazebo)
+if [[ $? == "0" ]]; then
+    source "$gazebo_path/share/gazebo/setup.sh"
 
-# devel path
-export GAZEBO_RESOURCE_PATH=@CMAKE_CURRENT_SOURCE_DIR@:$GAZEBO_RESOURCE_PATH
-export GAZEBO_RESOURCE_PATH=@CMAKE_SOURCE_DIR@:$GAZEBO_RESOURCE_PATH
-export GAZEBO_MODEL_PATH=@CMAKE_SOURCE_DIR@:$GAZEBO_MODEL_PATH
-
+    # devel path
+    export GAZEBO_RESOURCE_PATH=@CMAKE_CURRENT_SOURCE_DIR@:$GAZEBO_RESOURCE_PATH
+    export GAZEBO_RESOURCE_PATH=@CMAKE_SOURCE_DIR@:$GAZEBO_RESOURCE_PATH
+    export GAZEBO_MODEL_PATH=@CMAKE_SOURCE_DIR@:$GAZEBO_MODEL_PATH
+else
+    echo "Gazebo not installed -- not setting model/resource paths"
+fi

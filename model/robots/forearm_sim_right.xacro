@@ -12,14 +12,14 @@
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
     <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
     <xacro:property name="robot_type_suffix" value="_sim"/>
-    <xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/generic_models.xacro" />
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/common_bodies.xacro" />
-    <xacro:include filename="$(find val_description)/common/xacro/api/valkyrie_sim_api.xacro"/>
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/gazebo_self_collide.xacro"/>
+    <xacro:include filename="../../common/xacro/nodes/valkyrie_sim_nodes.xacro"/>
+    <xacro:include filename="../../model/robots/common/xacro/generic_models.xacro" />
+    <xacro:include filename="../../model/robots/common/xacro/common_bodies.xacro" />
+    <xacro:include filename="../../common/xacro/api/valkyrie_sim_api.xacro"/>
+    <xacro:include filename="../../model/robots/common/xacro/gazebo_self_collide.xacro"/>
 
     <!-- Arm include -->
-    <xacro:include filename="$(find val_description)/model/robots/common/xacro/arm/arm_includes.xacro"/>
+    <xacro:include filename="../../model/robots/common/xacro/arm/arm_includes.xacro"/>
 
     <link name="world"/>
 
