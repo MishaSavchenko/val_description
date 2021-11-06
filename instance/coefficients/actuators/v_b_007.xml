@@ -1,7 +1,8 @@
 <CoeffData>
     <ClassFile id="b.xml" />
     <ControllerFile id="b_sv.xml" />
-    <LocationFile id="hip_roll_right.xml" />
+    <!-- <LocationFile id="hip_roll_right.xml" /> -->
+    <LocationFile id="testbench.xml" />
     <SensorsFile id="sensors.xml" />
     <SafetyFile id="safety.xml" />
     <Coeffs>
@@ -16,6 +17,16 @@
         <Coeff id="JointOutputAPS_MountingGain" value="1.0" />
         <Coeff id="SpringAPS_BitOffset" value="986896523.0" />
         <Coeff id="SpringAPS_MountingGain" value="-1.0" />
-        <Coeff id="TorqueOffset_Nm" value="-12.861486186" />
+        <Coeff id="TorqueOffset_Nm" value="-14.077" />
+
+<!--         <Coeff id="TorqueControl_Kd" value="0.006"/>
+        <Coeff id="TorqueControl_Kp" value="2.5"/>
+        <Coeff id="TorqueControl_Current2MotorTorque" value="1.449"/> -->
+
+
+        <Coeff description="" id="LoadCell_MountingGain" value="1.0" />
+        <Coeff description="" id="LoadCell_NmPerCount" value="-0.01536658" />
+        <Coeff description="" id="LoadCell_OffsetBits" value="32586" />
+
     </Coeffs>
 </CoeffData>
