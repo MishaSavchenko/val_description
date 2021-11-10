@@ -17,21 +17,38 @@
         <Coeff id="JointOutputAPS_MountingGain" value="1.0" />
         <Coeff id="SpringAPS_BitOffset" value="986896523.0" />
         <Coeff id="SpringAPS_MountingGain" value="-1.0" />
-        <Coeff id="TorqueOffset_Nm" value="-21.377" />
+        <Coeff id="TorqueOffset_Nm" value="-1.04" />
 
-        <Coeff id="TorqueControl_Kd" value="0.003"/>
-        <Coeff id="TorqueControl_Kp" value="3.0"/>
-        <Coeff id="TorqueControl_Current2MotorTorque" value="1.449"/>
-        <Coeff id="TorqueControl_enableFF" value="1.0"/>
-        <Coeff id="TorqueControl_Kd_fc_Hz" value="100.0"/>
+        <!-- <Coeff id="TorqueControl_Kd" value="0.003"/> -->
+        <!-- <Coeff id="TorqueControl_Kp" value="3.0"/> -->
+        <!-- <Coeff id="TorqueControl_Current2MotorTorque" value="1.449"/> -->
+        <!-- <Coeff id="TorqueControl_enableFF" value="1.0"/> -->
+        <!-- <Coeff id="TorqueControl_enablePID" value="0.0"/> -->
+        <!-- <Coeff id="TorqueControl_Kd_fc_Hz" value="100.0"/> -->
 
-<!-- last stable: kd = 0.003, kp = 3.0 -->
-<!-- last stable: kd = 0.003, kp = 3.1 -->
-<!-- last stable: kd = 0.004, kp = 3.1 -->
+<!-- old gains -->
+<!--     <Coeff id="TorqueControl_Kd" value="0.006"/>
+    <Coeff id="TorqueControl_Kp" value="2.5"/>
+ -->
+<!-- new gains -->
+        <Coeff id="TorqueControl_Kd" value="0.02"/>
+        <Coeff id="TorqueControl_Kp" value="10"/> 
+
+        <Coeff id="JointTorqueLimit_Nm" value="80.0"/>
+        <Coeff id="SpringStiffness" value="3375.0"/>
+
+
+<!-- highest stable: kd = 0.015, kp = 10.0 -->
+<!-- highest stable: kd = 0.02, kp = 10.0 -->
+<!-- highest stable: kd = 0.02, kp = 12.0 -->
+<!-- highest stable: kd = 0.025, kp = 12.0 -->
+<!-- highest stable: kd = 0.025, kp = 14.0 -->
+<!-- highest stable: kd = 0.03, kp = 15.0 -->
+
 
         <Coeff description="" id="LoadCell_MountingGain" value="1.0" />
         <Coeff description="" id="LoadCell_NmPerCount" value="-0.01536658" />
-        <Coeff description="" id="LoadCell_OffsetBits" value="32586" />
+        <Coeff description="" id="LoadCell_OffsetBits" value="32995" />
 
     </Coeffs>
 </CoeffData>
