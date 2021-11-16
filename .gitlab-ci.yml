@@ -13,7 +13,7 @@ stages:
 include:
   - project: ci_build/workspace_tools
     file: gitlab_templates/ros/ros.yml
-    ref: develop
+    ref: feature/more-stable-post-install-deps
 
 before_script:
   - echo "yaml https://js-er-code.jsc.nasa.gov/nc/nasa_common_rosdep/raw/develop/nasa-common.yaml" > /etc/ros/rosdep/sources.list.d/10-nasa-common.list 
