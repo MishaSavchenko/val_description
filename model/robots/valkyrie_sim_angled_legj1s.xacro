@@ -21,7 +21,6 @@
     <xacro:include filename="../../model/robots/common/xacro/sensors/angled_lj1s_sensor_transforms.xacro"/>
 
     <xacro:include filename="../../common/xacro/api/valkyrie_sim_api.xacro"/>
-    <xacro:include filename="../../model/urdf/multisense_sl.urdf" />
     <xacro:include filename="../../common/xacro/serial_numbers/valkyrie_A_serials.xacro"/>
     <xacro:include filename="../../common/xacro/dev_ports/valkyrie_gazebo_ports.xacro"/>
     <xacro:include filename="../../model/robots/common/xacro/gazebo_harness.xacro"/>
