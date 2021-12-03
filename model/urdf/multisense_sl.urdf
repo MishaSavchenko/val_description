@@ -67,7 +67,7 @@
     <mu2>0.9</mu2>
   </gazebo>
 
-  <joint name="hokuyo_joint" type="continuous">
+  <joint name="multisense/motor_joint" type="continuous">
     <origin xyz="-0.0446 0 0.0880" rpy="0 0 0" />
     <parent link="multisense/head" />
     <child link="multisense/hokuyo_link" />
@@ -298,4 +298,31 @@
   <gazebo>
     <plugin filename="libSRCMultiSenseSLPlugin.so" name="multisense_plugin"/>
   </gazebo>
+
+
+    <!-- IMU Frames, Mag/Accel and Gyro -->
+    <!-- Include transfrom to the left_camera_frame (shift in -.035mm in X and -.002mm in Z) -->
+
+    <link name="multisense/accel"/>
+    <joint name="multisense/accel_joint" type="fixed">
+      <origin xyz="-.0475 .0302 -.00275" rpy="0 1.5707 0"/>
+      <parent link="multisense/head"/>
+      <child link="multisense/accel"/>
+    </joint>
+
+    <link name="multisense/mag"/>
+    <joint name="multisense/mag_joint" type="fixed">
+      <origin xyz="-.0475 .0302 -.00275" rpy="0 1.5707 0"/>
+      <parent link="multisense/head"/>
+      <child link="multisense/mag"/>
+    </joint>
+
+    <link name="multisense/gyro"/>
+    <joint name="multisense/gyro_joint" type="fixed">
+      <origin xyz="-.0476 .0388 -.00075" rpy="1.5707 3.14159 1.5707 "/>
+      <parent link="multisense/head"/>
+      <child link="multisense/gyro"/>
+    </joint>
+
+
 </robot>

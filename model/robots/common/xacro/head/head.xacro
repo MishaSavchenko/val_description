@@ -66,8 +66,7 @@
 
     <xacro:macro name="include_multisense_sim">
       <xacro:fixed_joint jointName="multisense_head_root_joint" parent="upperNeckPitchLink" child="multisense/head" origin_xyz="0.183585961 0.0 0.075353826" origin_rpy="-3.14159 0.130899694 0.0" />
-      <xacro:include filename="$(find val_description)/model/urdf/multisense_sl/multisenseSL.urdf.xacro" />
-      <xacro:multisenseSL name="multisense" />
+      <xacro:include filename="$(find val_description)/model/urdf/multisense_sl.urdf" />
     </xacro:macro>
 
     <xacro:macro name="include_multisense_hw">
