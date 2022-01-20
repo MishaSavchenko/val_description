@@ -1,5 +1,14 @@
 <launch>
-    <param name="robot_description" textfile="$(find val_description)/model/robots/valkyrie_A.urdf"/>
+
+    <arg name="xacro" default="true"/>
+    <arg name="gui" default="true"/>
+
+    <group if="$(arg xacro)">
+        <param name="robot_description" command="$(find xacro)/xacro '$(find val_description)/model/robots/valkyrie_A.xacro'"/>
+    </group>
+    <group unless="$(arg xacro)">
+        <param name="robot_description" textfile="$(find val_description)/urdf/valkyrie_A.urdf"/>
+    </group>
 
     <!-- send fake joint values -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -10,6 +19,6 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
     <!-- Show in Rviz   -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find val_description)/launch/val_rviz.rviz"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find val_description)/launch/val_rviz.rviz"  if="$(arg gui)"/>
 
 </launch>
