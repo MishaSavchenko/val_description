@@ -12,13 +12,13 @@
 
     <!-- - - - - - - - - Controllers - - - - - - - - -->
     <!-- Commutation -->
-    <Coeff description="-1=master,0=six,1=4quad,2=sv,3=dh" value="3.0" id="Commutation_Select"/>
+    <Coeff id="Commutation_Select" value="3.0"/>
 
     <!-- Position Controller -->
-    <Coeff description="" value="10000.0" id="PositionControl_Kp"/>
-    <Coeff description="" value="20.0" id="PositionControl_Kd"/>
+    <Coeff id="PositionControl_Kp" value="10000.0"/>
+    <Coeff id="PositionControl_Kd" value="20.0"/>
     <Coeff id="PositionControl_Kd_fc_Hz" value="200.0"/>
-    <Coeff description="2 - HarmAPS, 3 - JointAPS" value="4" id="PositionControl_SensorFeedback"/>
+    <Coeff id="PositionControl_SensorFeedback" value="4" />
     <Coeff id="ForceControl_MotorForceDirection" value="1.0"/>
     <!-- end Position Controller -->
   </Coeffs>
