@@ -4,7 +4,7 @@
     <arg name="gui" default="true"/>
 
     <group if="$(arg xacro)">
-        <param name="robot_description" command="$(find xacro)/xacro '$(find val_description)/model/robots/valkyrie_A.xacro'"/>
+        <param name="robot_description" command="$(find xacro)/xacro '$(find val_description)/model/robots/valkyrie_A.urdf.xacro'"/>
     </group>
     <group unless="$(arg xacro)">
         <param name="robot_description" textfile="$(find val_description)/urdf/valkyrie_A.urdf"/>
