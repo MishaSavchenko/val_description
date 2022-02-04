@@ -1,16 +1,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie">
-    <!-- <xacro:arg name="use_head" default="true"/> -->
-    <!-- <xacro:arg name="use_right_arm" default="true"/> -->
-    <!-- <xacro:arg name="use_right_hand" default="true"/> -->
-    <!-- <xacro:arg name="use_right_leg" default="true"/>
-    <xacro:arg name="use_left_arm" default="true"/>
-    <xacro:arg name="use_left_hand" default="true"/>
-    <xacro:arg name="use_left_leg" default="true"/> -->
-
     <!-- Create Pelvis -->
     <xacro:make_pelvis />
     <xacro:v1_pelvis_rear_sensors_usb sensor_node_tag="${pelvis_rear_imu_node}" sensor_api_tag="${ImuMicrostrainHardwareApi}"  sensor_port_tag="${pelvis_rear_imu_port}"/>
-    <xacro:include_zedm_hw />    
+    <xacro:include_zedm_hw />
     <!-- Create Waist -->
     <xacro:make_waist waist_root_link="${Pelvis_Link_Name}" />
     <xacro:waist_transmissions_hw />
