@@ -1,13 +1,17 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_nodes">
 
-	<!--<xacro:property name="HipYawNode" value="/pelvis/${prefix}_leg_j1" /> -->
+        <!-- Leg J1's can't follow the pattern of returning a suffix -->
+	<xacro:property name="HipLeftYawNode" value="/pelvis/left_leg_j1" /> 
+	<xacro:property name="HipRightYawNode" value="/pelvis/right_leg_j1" />
 	<xacro:property name="HipRollNode" value="_leg/j2" />
 	<xacro:property name="HipPitchNode" value="_leg/j3" />
 	<xacro:property name="KneePitchNode" value="_leg/j4" />
 	<xacro:property name="AnkleLeftActuatorNode" value="_leg/ankle/left_actuator" />
 	<xacro:property name="AnkleRightActuatorNode" value="_leg/ankle/right_actuator" />
 
-	<xacro:property name="ShoulderPitchNode" value="/trunk/${prefix}_arm_j1" />
+        <!-- Arm J1's can't follow the pattern of returning a suffix -->
+	<xacro:property name="ShoulderLeftPitchNode" value="/trunk/left_arm_j1" /> 
+	<xacro:property name="ShoulderRightPitchNode" value="/trunk/right_arm_j1" /> 
 	<xacro:property name="ShoulderRollNode" value="_arm/j2" />
 	<xacro:property name="ShoulderYawNode" value="_arm/j3" />
 	<xacro:property name="ElbowPitchNode" value="_arm/j4" />
@@ -33,8 +37,8 @@
 	<xacro:property name="WaistLeftActuatorNode" value="/trunk/left_actuator" /> <!--pitch-->
 	<xacro:property name="WaistRightActuatorNode" value="/trunk/right_actuator" /> <!--roll-->
 
-	<xacro:property name="Athena1Node" value="/${prefix}_arm/athena1"/>
-	<xacro:property name="Athena2Node" value="/${prefix}_arm/athena2"/>
+	<xacro:property name="Athena1Node" value="_arm/athena1"/>
+	<xacro:property name="Athena2Node" value="_arm/athena2"/>
 
 	<xacro:property name="pelvis_middle_imu_node" value="/sensors/middlePelvisIMU" />
 	<xacro:property name="pelvis_rear_imu_node" value="/sensors/rearPelvisIMU" />
