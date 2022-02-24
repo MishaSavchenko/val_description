@@ -248,7 +248,7 @@
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="${actuatorName}">
         <node name="${nodeName}"/>
@@ -262,7 +262,7 @@
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${actuatorName}">
         <node name="${nodeName}"/>
@@ -276,7 +276,7 @@
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         <child name="${child1JointName}" ratio="${reflect * child1Ratio}"/>
       </joint>
       <actuator name="${actuatorName}">
@@ -291,7 +291,7 @@
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         <child name="${child1JointName}" ratio="${reflect * child1Ratio}"/>
         <child name="${child2JointName}" ratio="${reflect * child2Ratio}"/>
         <child name="${child3JointName}" ratio="${reflect * child3Ratio}"/>
@@ -322,7 +322,7 @@
     <transmission name="${jointName}Transmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${jointName}">
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
       <actuator name="${actuatorName}">
         <node name="${nodeName}"/>
@@ -337,11 +337,11 @@
       <type>${transmissionType}</type>
       <joint name="${joint1Name}">
         <role>${joint1Role}</role>
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
       <joint name="${joint2Name}">
         <role>${joint2Role}</role>
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
        <actuator name="${actuator1Name}">
         <node name="${actuator1Node}"/>
@@ -363,11 +363,11 @@
       <type>robot_transmission_interface/${transmissionType}</type>
       <joint name="${joint1Name}">
         <role>${joint1Role}</role>
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
       <joint name="${joint2Name}">
         <role>${joint2Role}</role>
-        <hardwareInterface>PositionJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       </joint>
        <actuator name="${actuator1Name}">
         <node name="${actuator1Node}"/>

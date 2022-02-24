@@ -6,7 +6,7 @@
     <transmission name="testbenchTransmission">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="testbenchJoint">
-        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       </joint>
       <actuator name="testbenchActuator">
         <node name="${testbench_node}"/>
