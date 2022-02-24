@@ -1,5 +1,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ValkyrieSim">
 
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      </plugin>
+    </gazebo>
 
     <xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
