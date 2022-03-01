@@ -73,12 +73,14 @@
 
 	<xacro:macro name="all_channels" >
 		<Channels>
-			<Channel id="/right_arm" />
-			<Channel id="/left_arm" />
-			<Channel id="/right_leg" />
-			<Channel id="/left_leg" />
-			<Channel id="/neck" />
-			<Channel id="/trunk" />
+			<Channel id="/right_arm" address="1" />
+			<Channel id="/left_arm" address="5" />
+			<Channel id="/right_leg" address="4" />
+			<Channel id="/left_leg" address="6" />
+			<Channel id="/neck" address="0" />
+			<Channel id="/trunk" address="7" />
+			<Channel id="/power" address="2" />
+			<Channel id="/pelvis" address="3" />
 		</Channels>
 	</xacro:macro>
     
