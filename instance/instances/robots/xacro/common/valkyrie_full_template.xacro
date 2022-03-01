@@ -12,7 +12,7 @@
 
 	<RobotInstance id="${instance}" />
 
-	<xacro:all_channels/>
+	<xacro:robonet_config/>
 
 	<Mechanisms>
 		<xacro:leg prefix="left" reflect="1" j1_serial_number="${leftLegJ1SerialNumber}" j2_serial_number="${leftLegJ2SerialNumber}" j3_serial_number="${leftLegJ3SerialNumber}" j4_serial_number="${leftLegJ4SerialNumber}" ankle_left_actuator_serial="${leftAnkleLeftActuatorSerialNumber}" ankle_right_actuator_serial="${leftAnkleRightActuatorSerialNumber}"/>

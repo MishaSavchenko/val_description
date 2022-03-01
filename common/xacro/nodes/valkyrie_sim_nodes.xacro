@@ -56,7 +56,7 @@
 	<xacro:property name="PinkyPitch2Node" value="_hand/pinky_pitch_2"/>
 	<xacro:property name="PinkyPitch3Node" value="_hand/pinky_pitch_3"/>
 
-	<xacro:macro name="all_channels" >
+	<xacro:macro name="robonet_config" >
 		<Channels>
 			<Channel id="/right_arm" />
 			<Channel id="/left_arm" />

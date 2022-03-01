@@ -7,10 +7,9 @@
 
 	<RobotInstance id="testbench" />
 
-	<Channels>
-	</Channels>
+	<RobonetConfig>
+	</RobonetConfig>
 
-	<!--<xacro:all_channels/>-->
     <xacro:firmware_base_url/>
 
 	<Mechanisms>
