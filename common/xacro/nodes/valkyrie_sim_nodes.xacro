@@ -1,8 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_sim_nodes">
 
-        <!-- Leg J1's can't follow the pattern of returning a suffix -->
-	<xacro:property name="HipLeftYawNode" value="/pelvis/left_leg_j1" /> 
-	<xacro:property name="HipRightYawNode" value="/pelvis/right_leg_j1" />
+	<!--<xacro:property name="HipYawNode" value="/pelvis/${prefix}_leg_j1" /> -->
 	<xacro:property name="TrunkYawNode" value="/pelvis/waist" /> <!--Yaw-->
 	<xacro:property name="LowerNeckPitchNode" value="/neck/j1" />
 	<xacro:property name="NeckYawNode" value="/neck/j2" />
