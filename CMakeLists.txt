@@ -5,11 +5,11 @@ project(val_description)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  xacro 
+  xacro
 )
 
 catkin_package(
- CATKIN_DEPENDS xacro 
+ CATKIN_DEPENDS xacro
 )
 
 set(urdf_files "")
@@ -40,11 +40,15 @@ foreach(it ${urdf_xacro_files})
 
   message("processing urdf file :" ${basepath}/${basename})
 
+
+  set(expanded_file_src "${CMAKE_CURRENT_SOURCE_DIR}/urdf/${basename}.urdf")
+  message("produce expanded file :" ${expanded_file_src})
+  xacro_add_xacro_file(${it} ${expanded_file_src})
+  set(urdf_files ${urdf_files} ${expanded_file_src})
+
   set(expanded_file "${URDF_OUTPUT_PATH}/${basename}.urdf")
   message("produce expanded file :" ${expanded_file})
-
   xacro_add_xacro_file(${it} ${expanded_file})
-  
   set(urdf_files ${urdf_files} ${expanded_file})
 endforeach(it)
 
@@ -59,7 +63,7 @@ foreach(it ${instance_xacro_files})
   message("produce expanded file :" ${expanded_file})
 
   xacro_add_xacro_file(${it} ${expanded_file})
-  
+
   set(instance_files ${instance_files} ${expanded_file})
 endforeach(it)
 
@@ -79,7 +83,7 @@ install(DIRECTORY instance
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(DIRECTORY common 
+install(DIRECTORY common
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
@@ -91,4 +95,3 @@ install(DIRECTORY ${INSTANCE_OUTPUT_PATH}
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/instance/instances)
 
 catkin_add_env_hooks(10.${PROJECT_NAME} SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
-
