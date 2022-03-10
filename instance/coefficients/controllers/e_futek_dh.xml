@@ -24,8 +24,6 @@
         <Coeff id="ForceControl_Kd_fc_Hz" value="50.0"/>
 
         <!-- DOB -->
-        <Coeff id="ForceControl_dobWindupLimit_N" value="1000.0"/>
-        <Coeff id="ForceControl_dob_fc_Hz" value="50.0"/>
         <Coeff id="ForceControl_enableDOB" value="0.0"/>
 
         <!-- DynFF -->
