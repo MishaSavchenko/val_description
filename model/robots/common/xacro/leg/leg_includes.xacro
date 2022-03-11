@@ -10,4 +10,5 @@
 	<xacro:include filename="../../../../../model/robots/common/xacro/sensors/ati_force_torque.xacro"/>
 
 	<xacro:include filename="../../../../../model/robots/common/xacro/leg/leg.xacro"/>	
+	<xacro:include filename="../../../../../model/robots/common/xacro/leg/upper_leg.xacro"/>	
 </robot>
