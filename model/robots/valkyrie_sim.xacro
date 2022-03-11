@@ -5,6 +5,12 @@
       </plugin>
     </gazebo>
 
+    <link name="world"/>
+    <joint name="fixed" type="fixed">
+        <parent link="world"/>
+        <child link="pelvis"/>
+    </joint>
+
     <xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
     <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
     <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshes/torso"/>
