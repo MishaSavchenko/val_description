@@ -19,7 +19,6 @@
     	<xacro:include filename="${head}/common/xacro/serial_numbers/valkyrie_${suffix}_serials.xacro"/>
         <xacro:include filename="${head}/common/xacro/api/valkyrie_${suffix}_api.xacro"/>
         <xacro:include filename="${head}/common/xacro/dev_ports/valkyrie_${suffix}_ports.xacro"/>
-        <xacro:include filename="${head}/model/robots/common/xacro/common_bodies.xacro" />
 
         <!-- Pelvis include -->
         <xacro:include filename="${head}/model/robots/common/xacro/pelvis/pelvis_includes.xacro"/>
@@ -36,14 +35,21 @@
         <!-- Waist include -->
         <xacro:include filename="${head}/model/robots/common/xacro/waist/waist_includes.xacro"/>
 
-        <xacro:property name="use_head" default="true"/>
-        <xacro:property name="use_right_arm" default="true"/>
-        <xacro:property name="use_right_hand" default="true"/>
-        <xacro:property name="use_right_leg" default="true"/>
-        <xacro:property name="use_left_arm" default="true"/>
-        <xacro:property name="use_left_hand" default="true"/>
-        <xacro:property name="use_left_leg" default="true"/>
+        <xacro:if value="${arm_mass_sims}">
+            <xacro:include filename="../../model/robots/common/xacro/valkyrie_arm_mass_sims_base_hw.xacro"/>
+        </xacro:if>
+        <xacro:unless value="${arm_mass_sims}">
+            <xacro:include filename="${head}/model/robots/common/xacro/common_bodies.xacro" />
 
-        <xacro:include filename="${head}/model/robots/common/xacro/valkyrie_base_hw.xacro"/>
+            <xacro:property name="use_head" default="true"/>
+            <xacro:property name="use_right_arm" default="true"/>
+            <xacro:property name="use_right_hand" default="true"/>
+            <xacro:property name="use_right_leg" default="true"/>
+            <xacro:property name="use_left_arm" default="true"/>
+            <xacro:property name="use_left_hand" default="true"/>
+            <xacro:property name="use_left_leg" default="true"/>
+
+            <xacro:include filename="${head}/model/robots/common/xacro/valkyrie_base_hw.xacro"/>
+        </xacro:unless>
     </xacro:macro>
 </robot>
