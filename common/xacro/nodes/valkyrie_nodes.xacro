@@ -1,33 +1,19 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_nodes">
 
-        <!-- Leg J1's can't follow the pattern of returning a suffix -->
-	<xacro:property name="HipLeftYawNode" value="/pelvis/left_leg_j1" /> 
-	<xacro:property name="HipRightYawNode" value="/pelvis/right_leg_j1" />
+	<xacro:property name="HipYawNode" value="_leg_j1" />
 	<xacro:property name="HipRollNode" value="_leg/j2" />
 	<xacro:property name="HipPitchNode" value="_leg/j3" />
 	<xacro:property name="KneePitchNode" value="_leg/j4" />
 	<xacro:property name="AnkleLeftActuatorNode" value="_leg/ankle/left_actuator" />
 	<xacro:property name="AnkleRightActuatorNode" value="_leg/ankle/right_actuator" />
 
-        <!-- Arm J1's can't follow the pattern of returning a suffix -->
-	<xacro:property name="ShoulderLeftPitchNode" value="/trunk/left_arm_j1" /> 
-	<xacro:property name="ShoulderRightPitchNode" value="/trunk/right_arm_j1" /> 
+	<xacro:property name="ShoulderPitchNode" value="_arm_j1" />
 	<xacro:property name="ShoulderRollNode" value="_arm/j2" />
 	<xacro:property name="ShoulderYawNode" value="_arm/j3" />
 	<xacro:property name="ElbowPitchNode" value="_arm/j4" />
 	<xacro:property name="ForearmYawNode" value="_arm/j5" />
-	<xacro:property name="WristTopActuatorNode" value="_arm/wrist/top_actautor" />
-	<xacro:property name="WristBottomActuatorNode" value="_arm/wrist/bottom_actuator" />
 	<xacro:property name="WristLeftActuatorNode" value="_arm/wrist/left_actuator" />
 	<xacro:property name="WristRightActuatorNode" value="_arm/wrist/right_actuator" />
-
-    	<xacro:property name="IndexNode" value="_arm/hand/index" />
-    	<xacro:property name="MiddleNode" value="_arm/hand/middle" />
-    	<xacro:property name="PinkyNode" value="_arm/hand/pinky" />
-    	<xacro:property name="ThumbProxNode" value="_arm/hand/thumb_proximal" />
-    	<xacro:property name="ThumbDistNode" value="_arm/hand/thumb_distal" />
-    	<xacro:property name="WristLeftNode" value="_arm/wrist/left_actuator" />
-    	<xacro:property name="WristRightNode" value="_arm/wrist/right_actuator" />
 
 	<xacro:property name="LowerNeckPitchNode" value="/neck/j1" />
 	<xacro:property name="NeckYawNode" value="/neck/j2" />
@@ -36,9 +22,6 @@
 	<xacro:property name="TrunkYawNode" value="/pelvis/waist" /> <!--Yaw-->
 	<xacro:property name="WaistLeftActuatorNode" value="/trunk/left_actuator" /> <!--pitch-->
 	<xacro:property name="WaistRightActuatorNode" value="/trunk/right_actuator" /> <!--roll-->
-
-	<xacro:property name="Athena1Node" value="_arm/athena1"/>
-	<xacro:property name="Athena2Node" value="_arm/athena2"/>
 
 	<xacro:property name="pelvis_middle_imu_node" value="/sensors/middlePelvisIMU" />
 	<xacro:property name="pelvis_rear_imu_node" value="/sensors/rearPelvisIMU" />
@@ -71,15 +54,64 @@
 	<xacro:property name="ThumbPitch2Node" value="_arm/forearm_sensors/thumb"/>
 	<xacro:property name="ThumbPitch3Node" value="_arm/forearm_sensors/thumb"/>
 
-	<xacro:macro name="all_channels" >
-		<Channels>
-			<Channel id="/right_arm" />
-			<Channel id="/left_arm" />
-			<Channel id="/right_leg" />
-			<Channel id="/left_leg" />
-			<Channel id="/neck" />
-			<Channel id="/trunk" />
-		</Channels>
+    <xacro:macro name="robonet_arm_channel_nodes">
+        <Node id="forearm_sensors" address="1"/>
+        <Node id="j2" address="2"/>
+        <Node id="j3" address="3"/>
+        <Node id="j4" address="4"/>
+        <Node id="j5" address="5"/>
+        <Node id="hand/index" address="6"/>
+        <Node id="hand/pinky" address="7"/>
+        <Node id="hand/thumb_distal" address="8"/>
+        <Node id="hand/middle" address="9"/>
+        <Node id="hand/thumb_roll" address="10"/>
+        <Node id="wrist/left_actuator" address="11"/>
+        <Node id="hand/thumb_proximal" address="12"/>
+        <Node id="wrist/right_actuator" address="13"/>
+    </xacro:macro>
+
+    <xacro:macro name="robonet_leg_channel_nodes">
+        <Node id="j2" address="2"/>
+        <Node id="j3" address="3"/>
+        <Node id="j4" address="4"/>
+        <Node id="ankle/right_actuator" address="5"/>
+        <Node id="ankle/left_actuator" address="6"/>
+    </xacro:macro>
+
+	<xacro:macro name="robonet_config" >
+		<RobonetConfig>
+			<Channel id="/right_arm" address="1">
+                <xacro:robonet_arm_channel_nodes/>
+            </Channel>
+			<Channel id="/left_arm" address="5">
+                <xacro:robonet_arm_channel_nodes/>
+            </Channel>
+			<Channel id="/right_leg" address="4">
+                <xacro:robonet_leg_channel_nodes/>
+            </Channel>
+			<Channel id="/left_leg" address="6">
+                <xacro:robonet_leg_channel_nodes/>
+            </Channel>
+			<Channel id="/neck" address="0">
+                <Node id="j1" address="1"/>
+                <Node id="j2" address="2"/>
+                <Node id="j3" address="3"/>
+            </Channel>
+			<Channel id="/trunk" address="7">
+                <Node id="left_arm_j1" address="1"/>
+                <Node id="left_actuator" address="2"/>
+                <Node id="right_actuator" address="3"/>
+                <Node id="right_arm_j1" address="4"/>
+            </Channel>
+			<Channel id="/power" address="2">
+                <Node id="pdbmti" address="1"/>
+            </Channel>
+			<Channel id="/pelvis" address="3">
+                <Node id="waist" address="1"/>
+                <Node id="left_leg_j1" address="3"/>
+                <Node id="right_leg_j1" address="5"/>
+            </Channel>
+		</RobonetConfig>
 	</xacro:macro>
     
 </robot>

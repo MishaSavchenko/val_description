@@ -12,9 +12,9 @@
     <Coeff id="EffortControl_AlphaDot" value="0.8"/>
     <Coeff id="ForceControl_Current2MotorForce" value="0.01875"/>
     <Coeff id="ForceControl_FFd_fc_Hz" value="25.0"/>
-    <Coeff id="ForceControl_Kd" value="0.0012"/>
+    <Coeff id="ForceControl_Kd" value="0.0006"/>
     <Coeff id="ForceControl_Kd_fc_Hz" value="50.0"/>
-    <Coeff id="ForceControl_Kp" value="0.32"/>
+    <Coeff id="ForceControl_Kp" value="0.08"/>
     <Coeff id="ForceControl_MotorForceDirection" value="1.0"/>
     <Coeff id="ForceControl_PD_damp" value="0.95"/>
     <Coeff id="ForceControl_ParallelDamping" value="0.0"/>
