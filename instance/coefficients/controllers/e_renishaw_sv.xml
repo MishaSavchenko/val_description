@@ -1,19 +1,17 @@
 <CoeffData>
   <Coeffs>
     <!-- Torque Controller -->
-        <Coeff id="Commutation_Select" value="2.0"/>
         <Coeff id="EffortControl_OnlineTuning" value="0.0"/>
-        <Coeff id="EffortControl_Alpha" value="0.0"/>
-        <Coeff id="EffortControl_AlphaDot" value="0.95"/>
+        <Coeff id="EffortControl_Alpha" value="0.8"/>
+        <Coeff id="EffortControl_AlphaDot" value="0.8"/>
 
         <!-- FF -->
-        <Coeff id="ForceControl_Current2MotorForce" value="0.0375"/>
-        <Coeff id="ForceControl_enableFF" value="0.0"/>
+        <Coeff id="ForceControl_enableFF" value="1.0"/>
 
         <!-- PID -->
         <Coeff id="ForceControl_enablePID" value="1.0"/>
-        <Coeff id="ForceControl_Kp" value="0.125"/>
-        <Coeff id="ForceControl_Kd" value="0.0003"/>
+        <Coeff id="ForceControl_Kp" value="0.08"/>
+        <Coeff id="ForceControl_Kd" value="0.0006"/>
         <Coeff id="ForceControl_PD_damp" value="0.95"/>
         <Coeff id="ForceControl_autoKd" value="0.0"/>
         <Coeff id="ForceControl_Kd_fc_Hz" value="50.0"/>
