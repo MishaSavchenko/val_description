@@ -11,6 +11,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <depend>xacro</depend>
   <depend>python3-xmltodict</depend>
+  <depend>rospy</depend>
 
   <export>
 
