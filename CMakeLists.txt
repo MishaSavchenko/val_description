@@ -8,6 +8,8 @@ find_package(catkin REQUIRED COMPONENTS
   xacro
 )
 
+catkin_python_setup()
+
 catkin_package(
  CATKIN_DEPENDS xacro
 )
@@ -99,3 +101,9 @@ install(DIRECTORY ${INSTANCE_OUTPUT_PATH}
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/instance/instances)
 
 catkin_add_env_hooks(10.${PROJECT_NAME} SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
+
+# Install python programs
+install(DIRECTORY scripts/ 
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION}
+        PATTERN "scripts/*"
+        PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ)
