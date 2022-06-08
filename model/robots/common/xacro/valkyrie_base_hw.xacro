@@ -20,7 +20,7 @@
         <xacro:leg_transmissions_hw prefix="right"/>
     </xacro:if>
     <!-- Create Left Leg -->
-    <xacro:if value="${use_left_hand}">
+    <xacro:if value="${use_left_leg}">
         <xacro:make_leg prefix="left" reflect="1" leg_root_link="${Pelvis_Link_Name}"/>
         <xacro:v1_leg_sensors prefix="left" reflect="1" ATI_serial_number="${left_foot_ATI_serial}" ATI_node="${left_foot_ATI_node}"/>
         <xacro:leg_transmissions_hw prefix="left"/>
