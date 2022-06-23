@@ -4,14 +4,15 @@
       <FileGenDate date="2014-12-19" time="11:13:39.501828"/>
     </Properties>
     <ClassFile id="h_faulhauber.xml" />
-    <ControllerFile id="h_dh.xml" />
+    <ControllerFile id="h_sv.xml" />
     <LocationFile id="gripper.xml"/>
     <SensorsFile id="sensors_leonidas.xml" />
     <SafetyFile id="safety_fingers.xml" />
     <Coeffs>
         <Coeff id="EncMountingDir" value="1.0" />
         <!--Coeff id="EncoderIndexOffset" value="2.094395102393195"--> <!--Faulhaber 24V-->
-        <Coeff id="EncoderIndexOffset" value="2.099105075983916"/> <!--Faulhaber -31 gripper-->
+        <!--Coeff id="EncoderIndexOffset" value="2.799105075983916"/--> <!--Faulhaber -31 gripper-->
+        <Coeff id="EncoderIndexOffset" value="1.95"/>
         <Coeff id="JointKinematicDir" value="1.0"/>
         <Coeff id="JointSensors_MotorPosition" value="3.0"/>
         <Coeff id="JointSensors_OutputForce" value="0.0"/>
@@ -25,6 +26,9 @@
         <Coeff id="SixStep_CurrentToMotCom" value="5"/>
         <Coeff id="TemperatureSensor_SensorLoc1" value="0.0"/>
         <Coeff id="EncoderCPR" value="4096.0"/>
-        <Coeff id="Homing_Current" value="1"/>
+        <Coeff id="Homing_Current" value="0.75"/>
+        <Coeff id="Homing_CounterThreshold" value="6000"/>
+        <Coeff id="PositionControl_SensorFeedback" value="4.0"/>
+        <Coeff id="VelocityControl_SensorFeedback" value="4.0"/>
     </Coeffs>
 </CoeffData>
