@@ -28,7 +28,7 @@
         <Coeff id="EncoderCPR" value="4096.0"/>
         <Coeff id="Homing_Current" value="0.75"/>
         <Coeff id="Homing_CounterThreshold" value="6000"/>
-        <Coeff id="PositionControl_SensorFeedback" value="4.0"/>
-        <Coeff id="VelocityControl_SensorFeedback" value="4.0"/>
+	<Coeff id="PositionControl_SensorFeedback" value="4.0"/>
+	<Coeff id="PositionControl_Kp" value="2.0"/>
     </Coeffs>
 </CoeffData>
