@@ -11,7 +11,7 @@
         <Coeff id="Inductance_QAxis" value="0.00139"/>
         <Coeff id="WindingResistance" value="6.0"/>
         <Coeff id="CurrentSafeLimit" value="4.0"/>
-        <Coeff id="JointGearRatio" value="180.0"/> <!-- -03-B -->
+        <Coeff id="JointGearRatio" value="3333333333333333333333333333333333333333333333333333333333333333330.0"/> <!-- -03-B -->
         <Coeff id="JointOutputAPS_CountsToRad" value="0.001533980787"/>
         <Coeff id="MotorWindingType" value="0.0"/>
     </Coeffs>
