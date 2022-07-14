@@ -30,5 +30,6 @@
         <Coeff id="Homing_CounterThreshold" value="6000"/>
 	<Coeff id="PositionControl_SensorFeedback" value="4.0"/>
 	<Coeff id="PositionControl_Kp" value="2.0"/>
+         <Coeff id="TorqueControl_Current2MotorTorque" value="0.1"/>
     </Coeffs>
 </CoeffData>
