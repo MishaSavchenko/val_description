@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<robot name="nasa_forearm">
+
+	<link name = "world"/>
+
+	<joint name="world_to_base" type="fixed">
+		<parent link="world"/>
+		<child link="base"/>
+	</joint>
+
+	<link name="base">
+		<visual>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link1.stl"/>
+			</geometry>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+			<material name="forest_gree_crayola">
+				<color rgba="0.38823529 0.64313725 0.42352941 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link1.stl"/>
+			</geometry>
+			<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+		</collision>
+	</link>
+
+	<link name="input_link">
+		<visual>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link2.stl"/>
+			</geometry>
+			<origin xyz="0 0 0.0"/>
+			<material name="spanish_violet">
+				<color rgba="0.30588235 0.16470588 0.52156863 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link2.stl"/>
+			</geometry>
+			<origin xyz="0 0 0.0"/>
+		</collision>
+
+	</link>
+	
+	<link name="output_link">
+		<visual>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link3.stl"/>
+			</geometry>
+			<origin xyz="0 0 0.0"/>
+			<material name="yellow_orange">
+				<color rgba="1.0 0.65098039 0.18823529 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link3.stl"/>
+			</geometry>
+			<origin xyz="0 0 0.0"/>
+		</collision>
+	</link> 
+
+	 <link name="end_effector">
+		<visual>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link4.stl" />
+			</geometry>
+			<origin xyz="0 0 0.0"/>
+			<material name="imperial_red">
+				<color rgba="0.90196078 0.22352941 0.2745098 1"/>
+			</material>
+		</visual>
+		<collision>
+			<geometry>
+				<mesh filename="package://val_description/model/meshes/forearm/nasa/link4.stl" />
+			</geometry>
+			<origin xyz="0 0 0.0"/>
+		</collision>
+	</link>
+ 
+	<joint name="first_roll" type="revolute">
+		<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-3.1415" upper="3.1415" velocity="0.5"/>
+		<parent link = "base"/>
+		<child link="input_link"/>
+		<origin xyz="0.0 0.01 0.0" rpy="1.57 3.14 0.0"/>
+	</joint>
+
+	<joint name="pitch" type="revolute">
+		<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-1.22173" upper="1.91986" velocity="0.5"/>
+		<parent link="input_link"/>
+		<child link="output_link"/>
+		<origin xyz="0 0.003 -0.134 " rpy="1.57 0.0 3.14"/>
+	</joint>
+
+	<joint name="second_roll" type="revolute">
+		<axis xyz="0 0 1"/>
+		<limit effort="1000.0" lower="-3.1415" upper="3.1415" velocity="0.5"/>
+		<parent link="output_link"/>
+		<child link="end_effector"/>
+		<origin xyz=" 0.0 -0.124 -0.006" rpy=" 1.57 3.14 3.14"/>
+	</joint>
+
+</robot>
