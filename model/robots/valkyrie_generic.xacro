@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie">
     <xacro:macro name="valkyrie_generic" params="suffix">
-        <xacro:property name="head" default="../../"/>
+        <xacro:property name="head" default="$(find val_description)"/>
 
     	<xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
         <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
@@ -35,19 +35,19 @@
         <!-- Waist include -->
         <xacro:include filename="${head}/model/robots/common/xacro/waist/waist_includes.xacro"/>
 
-        <xacro:if value="${arm_mass_sims}">
-            <xacro:include filename="../../model/robots/common/xacro/valkyrie_arm_mass_sims_base_hw.xacro"/>
+        <xacro:if value="$(arg arm_mass_sims)">
+            <xacro:include filename="${head}/model/robots/common/xacro/valkyrie_arm_mass_sims_base_hw.xacro"/>
         </xacro:if>
-        <xacro:unless value="${arm_mass_sims}">
+        <xacro:unless value="$(arg arm_mass_sims)">
             <xacro:include filename="${head}/model/robots/common/xacro/common_bodies.xacro" />
 
-            <xacro:property name="use_head" default="true"/>
-            <xacro:property name="use_right_arm" default="true"/>
-            <xacro:property name="use_right_hand" default="true"/>
-            <xacro:property name="use_right_leg" default="true"/>
-            <xacro:property name="use_left_arm" default="true"/>
-            <xacro:property name="use_left_hand" default="true"/>
-            <xacro:property name="use_left_leg" default="true"/>
+            <xacro:property name="use_head" default="$(arg use_head)"/>
+            <xacro:property name="use_right_arm" default="$(arg use_right_arm)"/>
+            <xacro:property name="use_right_hand" default="$(arg use_right_hand)"/>
+            <xacro:property name="use_right_leg" default="$(arg use_right_leg)"/>
+            <xacro:property name="use_left_arm" default="$(arg use_left_arm)"/>
+            <xacro:property name="use_left_hand" default="$(arg use_left_hand)"/>
+            <xacro:property name="use_left_leg" default="$(arg use_left_leg)"/>
 
             <xacro:include filename="${head}/model/robots/common/xacro/valkyrie_base_hw.xacro"/>
         </xacro:unless>
