@@ -1,10 +1,10 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
 
-    <xacro:include filename="$(find val_description)/instance/instances/robots/xacro/mechanisms/mechanisms.xacro"/>
-    <xacro:include filename="$(find val_description)/common/xacro/joint_names/valkyrie_joint_names.xacro"/>
+    <xacro:include filename="../../../../../../instance/instances/robots/xacro/mechanisms/mechanisms.xacro"/>
+    <xacro:include filename="../../../../../../common/xacro/joint_names/valkyrie_joint_names.xacro"/>
 
     <xacro:macro name="arm" params="prefix reflect j1_serial_number j2_serial_number j3_serial_number j4_serial_number j5_serial_number forearm_serial_number" >
-    	<xacro:simple_mechanism name="${ShoulderPitchJointName}" serial_number="${j1_serial_number}" node="/trunk/${prefix}_arm_j1" calibration_angle="${ShoulderPitchCalibrationAngle}"/>
+        <xacro:simple_mechanism name="${ShoulderPitchJointName}" serial_number="${j1_serial_number}" node="/trunk/${prefix}${ShoulderPitchNode}" calibration_angle="${ShoulderPitchCalibrationAngle}"/>
 
     	<xacro:simple_mechanism name="${ShoulderRollJointName}" serial_number="${j2_serial_number}" node="/${prefix}${ShoulderRollNode}" calibration_angle="${reflect * -1.309}"/>
 
@@ -14,7 +14,7 @@
 
     	<xacro:simple_mechanism name="${ForearmYawJointName}" serial_number="${j5_serial_number}" node="/${prefix}${ForearmYawNode}" calibration_angle="${ForearmYawCalibrationAngle}"/>
 
-    	<xacro:hand_mechanism mechanism_name="${prefix}Hand" serial_number="${forearm_serial_number}" index_node="/${prefix}${IndexNode}" middle_node="/${prefix}${MiddleNode}" pinky_node="/${prefix}${PinkyNode}" thumb_prox_node="/${prefix}${ThumbProxNode}" thumb_dist_node="/${prefix}${ThumbDistNode}" thumb_roll_node="/${prefix}${ThumbRollNode}" wrist_left_node="/${prefix}${WristLeftNode}" wrist_right_node="/${prefix}${WristRightNode}" wrist_pitch_calibration_angle="${WristPitchCalibrationAngle}" wrist_roll_calibration_angle="${WristRollCalibrationAngle}" />
+    	<xacro:hand_mechanism mechanism_name="${prefix}Hand" serial_number="${forearm_serial_number}" index_node="/${prefix}${IndexFingerNode}" middle_node="/${prefix}${MiddleFingerNode}" pinky_node="/${prefix}${PinkyFingerNode}" thumb_prox_node="/${prefix}${ThumbProximalNode}" thumb_dist_node="/${prefix}${ThumbDistalNode}" thumb_roll_node="/${prefix}${ThumbRollNode}" wrist_left_node="/${prefix}${WristLeftActuatorNode}" wrist_right_node="/${prefix}${WristRightActuatorNode}" wrist_pitch_calibration_angle="${WristPitchCalibrationAngle}" wrist_roll_calibration_angle="${WristRollCalibrationAngle}" />
 
         <xacro:hand_sensor_mechanism name="${prefix}HandSensors" serial_number="${forearm_serial_number}_midas" node="/${prefix}${HandSensorNode}" />
 

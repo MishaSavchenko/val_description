@@ -5,11 +5,13 @@ project(val_description)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  xacro 
+  xacro
 )
 
+catkin_python_setup()
+
 catkin_package(
- CATKIN_DEPENDS xacro 
+ CATKIN_DEPENDS xacro
 )
 
 set(urdf_files "")
@@ -40,11 +42,15 @@ foreach(it ${urdf_xacro_files})
 
   message("processing urdf file :" ${basepath}/${basename})
 
+
+  set(expanded_file_src "${CMAKE_CURRENT_SOURCE_DIR}/urdf/${basename}.urdf")
+  message("produce expanded file :" ${expanded_file_src})
+  xacro_add_xacro_file(${it} ${expanded_file_src})
+  set(urdf_files ${urdf_files} ${expanded_file_src})
+
   set(expanded_file "${URDF_OUTPUT_PATH}/${basename}.urdf")
   message("produce expanded file :" ${expanded_file})
-
-  xacro_add_xacro_file(${it} ${expanded_file} INORDER)
-  
+  xacro_add_xacro_file(${it} ${expanded_file})
   set(urdf_files ${urdf_files} ${expanded_file})
 endforeach(it)
 
@@ -58,8 +64,8 @@ foreach(it ${instance_xacro_files})
   set(expanded_file "${INSTANCE_OUTPUT_PATH}/${basename}.xml")
   message("produce expanded file :" ${expanded_file})
 
-  xacro_add_xacro_file(${it} ${expanded_file} INORDER)
-  
+  xacro_add_xacro_file(${it} ${expanded_file})
+
   set(instance_files ${instance_files} ${expanded_file})
 endforeach(it)
 
@@ -75,11 +81,15 @@ install(DIRECTORY model
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
 install(DIRECTORY instance
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(DIRECTORY common 
+install(DIRECTORY common
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
@@ -92,3 +102,8 @@ install(DIRECTORY ${INSTANCE_OUTPUT_PATH}
 
 catkin_add_env_hooks(10.${PROJECT_NAME} SHELLS bash DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 
+# Install python programs
+install(DIRECTORY scripts/ 
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/${CATKIN_PACKAGE_BIN_DESTINATION}
+        PATTERN "scripts/*"
+        PERMISSIONS OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD_EXECUTE WORLD_READ)

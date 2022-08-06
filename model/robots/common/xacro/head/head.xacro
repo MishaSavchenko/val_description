@@ -1,5 +1,5 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="head">
-  
+    
   <xacro:macro name="include_head" params="lower_neck_pitch_root_link">
   </xacro:macro>
 
@@ -71,6 +71,21 @@
     <xacro:macro name="include_multisense_hw">
       <xacro:massless_virtual_link name="multisense/head" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
       <xacro:fixed_joint jointName="multisense_head_root_joint" parent="upperNeckPitchLink" child="multisense/head" origin_xyz="0.183585961 0.0 0.075353826" origin_rpy="-3.14159 0.130899694 0.0" />
+    </xacro:macro>
+
+    <xacro:macro name="include_zedm_sim">
+      <xacro:massless_virtual_link name="zedm_mount" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
+      <xacro:fixed_joint jointName="zedm_head_root_joint" parent="upperNeckPitchLink" child="zedm_mount" origin_xyz="0.192184 0.0 -0.096498" origin_rpy="0.0 0.1309 0.0" />
+      
+      <xacro:include filename="$(find val_description)/model/urdf/zed/zed_macro.urdf.xacro" />
+      <xacro:zed_camera name="zedm" model="zedm" parent="zedm_mount">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      </xacro:zed_camera>
+    </xacro:macro>
+
+    <xacro:macro name="include_zedm_hw">
+      <xacro:massless_virtual_link name="zedm_mount" origin_xyz="0 0 0" origin_rpy="0 0 0"/>
+      <xacro:fixed_joint jointName="zedm_head_root_joint" parent="upperNeckPitchLink" child="zedm_mount" origin_xyz="0.192184 0.0 -0.096498" origin_rpy="0.0 0.1309 0.0" />
     </xacro:macro>
 
     <xacro:macro name="neck_transmissions_hw">

@@ -2,16 +2,16 @@
     <ClassFile id="e.xml">
         <SubClassFile id="trunk_linear.xml" />
     </ClassFile>
-    <ControllerFile id="e_dh.xml">
-        <SubControllerFile id="e_renishaw_dh.xml" />
+    <ControllerFile id="e_sv.xml">
+        <SubControllerFile id="e_renishaw_sv.xml" />
     </ControllerFile>
-    <LocationFile id="ankle.xml" />
+    <LocationFile id="trunk.xml" />
     <SensorsFile id="sensors.xml" />
     <SafetyFile id="safety.xml" />
     <Coeffs>
         <Coeff id="EncMountingDir" value="1.0" />
         <Coeff id="EncoderIndexOffset" value="1.24833645026" />
-        <Coeff id="ForceOffset_N" value="1350.0" />
+        <Coeff id="ForceOffset_N" value="0.0" />
         <Coeff id="JointKinematicDir" value="-1.0" />
         <Coeff id="JointSensors_LinearPosition" value="2.0" />
         <Coeff id="JointSensors_LinearVelocity" value="2.0" />

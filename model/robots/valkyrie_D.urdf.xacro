@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie">
+	<xacro:property name="robot_type_suffix" value=""/>
+	<xacro:property name="arm_mass_sims" default="false"/>
+    <xacro:include filename="./valkyrie_generic.xacro"/>
+    <xacro:valkyrie_generic suffix="D"/>
+</robot>

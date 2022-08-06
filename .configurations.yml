@@ -1,0 +1,18 @@
+---
+branch_config_sets:
+    noetic_config:
+        production: noetic
+        integration: noetic-devel
+        feature: noetic-feature/
+        bugfix: noetic-bugfix/
+        release: noetic-release/
+        hotfix: noetic-hotfix/
+
+configurations:
+  noetic:
+    repositories:
+        val_description:
+            type: git
+            url: https://js-er-code.jsc.nasa.gov/vs/val_description.git
+            configuration: noetic
+            branch_config: noetic_config

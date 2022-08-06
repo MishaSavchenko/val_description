@@ -1,18 +1,18 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie_template">
 
-	<xacro:include filename="$(find val_description)/common/xacro/nodes/valkyrie_nodes.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/limbs/leg/leg.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/limbs/arm/arm.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/limbs/neck/neck.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/limbs/waist/waist.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/sensors/imu.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/sensors/ati_force_torque.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/firmware/firmware.xacro" />
-	<xacro:include filename="$(find val_description)/instance/instances/robots/xacro/common/joint_calibration_angles.xacro" />
+	<xacro:include filename="../../../../../common/xacro/nodes/valkyrie_nodes.xacro" />
+	<xacro:include filename="../../../../../common/xacro/firmware/valkyrie_firmware.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/limbs/leg/leg.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/limbs/arm/arm.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/limbs/neck/neck.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/limbs/waist/waist.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/sensors/imu.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/sensors/ati_force_torque.xacro" />
+	<xacro:include filename="../../../../../instance/instances/robots/xacro/common/joint_calibration_angles.xacro" />
 
 	<RobotInstance id="${instance}" />
 
-	<xacro:all_channels/>
+	<xacro:robonet_config/>
 
 	<Mechanisms>
 		<xacro:leg prefix="left" reflect="1" j1_serial_number="${leftLegJ1SerialNumber}" j2_serial_number="${leftLegJ2SerialNumber}" j3_serial_number="${leftLegJ3SerialNumber}" j4_serial_number="${leftLegJ4SerialNumber}" ankle_left_actuator_serial="${leftAnkleLeftActuatorSerialNumber}" ankle_right_actuator_serial="${leftAnkleRightActuatorSerialNumber}"/>
@@ -34,6 +34,5 @@
 	</Devices>
 
 	<xacro:firmware_base_url/>
-    <xacro:firmware />
     
 </robot>

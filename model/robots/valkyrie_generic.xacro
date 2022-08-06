@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="valkyrie">
+    <xacro:macro name="valkyrie_generic" params="suffix">
+        <xacro:property name="head" default="$(find val_description)"/>
+
+    	<xacro:property name="leg_mesh_dir" value="package://val_description/model/meshes/legs"/>
+        <xacro:property name="arm_mesh_dir" value="package://val_description/model/meshes/arms"/>
+        <xacro:property name="waist_mesh_dir" value="package://val_description/model/meshes/torso"/>
+        <xacro:property name="head_mesh_dir" value="package://val_description/model/meshes/head"/>
+        <xacro:property name="pelvis_mesh_dir" value="package://val_description/model/meshes/pelvis"/>
+        <xacro:property name="fingers_mesh_dir" value="package://val_description/model/meshes/fingers"/>
+        <xacro:property name="robot_type_suffix" value=""/>
+
+    	<xacro:include filename="${head}/model/robots/common/xacro/generic_models.xacro" />
+        <xacro:include filename="${head}/common/xacro/nodes/valkyrie_nodes.xacro"/>
+        <xacro:include filename="${head}/model/robots/common/xacro/sensors/sensor_transforms.xacro"/>
+
+        <xacro:include filename="${head}/model/robots/common/xacro/config/valkyrie_${suffix}_transmissions.xacro" />
+    	<xacro:include filename="${head}/common/xacro/serial_numbers/valkyrie_${suffix}_serials.xacro"/>
+        <xacro:include filename="${head}/common/xacro/api/valkyrie_${suffix}_api.xacro"/>
+        <xacro:include filename="${head}/common/xacro/dev_ports/valkyrie_${suffix}_ports.xacro"/>
+
+        <!-- Pelvis include -->
+        <xacro:include filename="${head}/model/robots/common/xacro/pelvis/pelvis_includes.xacro"/>
+
+        <!-- Leg include -->
+        <xacro:include filename="${head}/model/robots/common/xacro/leg/leg_includes.xacro"/>
+
+        <!-- Head include -->
+        <xacro:include filename="${head}/model/robots/common/xacro/head/head_includes.xacro"/>
+
+        <!-- Arm include -->
+        <xacro:include filename="${head}/model/robots/common/xacro/arm/arm_includes.xacro"/>
+
+        <!-- Waist include -->
+        <xacro:include filename="${head}/model/robots/common/xacro/waist/waist_includes.xacro"/>
+
+        <xacro:if value="$(arg arm_mass_sims)">
+            <xacro:include filename="${head}/model/robots/common/xacro/valkyrie_arm_mass_sims_base_hw.xacro"/>
+        </xacro:if>
+        <xacro:unless value="$(arg arm_mass_sims)">
+            <xacro:include filename="${head}/model/robots/common/xacro/common_bodies.xacro" />
+
+            <xacro:property name="use_head" default="$(arg use_head)"/>
+            <xacro:property name="use_right_arm" default="$(arg use_right_arm)"/>
+            <xacro:property name="use_right_hand" default="$(arg use_right_hand)"/>
+            <xacro:property name="use_right_leg" default="$(arg use_right_leg)"/>
+            <xacro:property name="use_left_arm" default="$(arg use_left_arm)"/>
+            <xacro:property name="use_left_hand" default="$(arg use_left_hand)"/>
+            <xacro:property name="use_left_leg" default="$(arg use_left_leg)"/>
+
+            <xacro:include filename="${head}/model/robots/common/xacro/valkyrie_base_hw.xacro"/>
+        </xacro:unless>
+    </xacro:macro>
+</robot>
